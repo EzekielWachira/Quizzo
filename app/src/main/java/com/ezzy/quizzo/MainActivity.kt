@@ -32,6 +32,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
+import com.ezzy.quizzo.ui.screens.onboarding.OnboardingScreen
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.ezzy.quizzo.ui.theme.RoyalBlue65
 
@@ -50,7 +52,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize()
                     ) {
 
-                        QRCodeBorder()
+                        OnboardingScreen(rememberNavController())
                     }
                 }
             }
@@ -72,7 +74,9 @@ fun QRCodeBorder() {
                 repeatMode = RepeatMode.Reverse
             ), label = ""
         )
-        Canvas(modifier = Modifier.matchParentSize().clip(RoundedCornerShape(3.dp))) {
+        Canvas(modifier = Modifier
+            .matchParentSize()
+            .clip(RoundedCornerShape(3.dp))) {
             val strokeWidth = 10f
             val halfStrokeWidth = strokeWidth / 2
             val cornerSize = 50f // Adjust this to change the size of the corners

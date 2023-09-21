@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Quizzo</string>
+    <string name="get_started">Get started</string>
+    <string name="already_have_account">Already have an account</string>
+    <string name="create_share">Create, share and play quizzes whenever and wherever you want</string>
+    <string name="find_fun">Find fun to boost your knowledge</string>
+    <string name="play_and_take">Play and take quiz together with your friends.</string>
 </resources>
