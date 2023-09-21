@@ -10,31 +10,37 @@ import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
-    secondary = PurpleGrey80,
-    tertiary = Pink80
+    primary = RoyalBlue65,
+    secondary = RoyalBlue65,
+    tertiary = Pink80,
+    background = DarkGrey11,
+    inversePrimary = Color.White,
+    secondaryContainer = DarkSlateBlue14,
+    outline = DarkSlateBlue23,
+    onPrimary = RoyalBlue65,
+    onSecondary = Grey88
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
-    secondary = PurpleGrey40,
-    tertiary = Pink40
-
-    /* Other default colors to override
-    background = Color(0xFFFFFBFE),
-    surface = Color(0xFFFFFBFE),
-    onPrimary = Color.White,
-    onSecondary = Color.White,
-    onTertiary = Color.White,
-    onBackground = Color(0xFF1C1B1F),
-    onSurface = Color(0xFF1C1B1F),
-    */
+    primary = RoyalBlue65,
+    secondary = RoyalBlue65,
+    tertiary = Pink40,
+    background = Color.White,
+    inversePrimary = DarkGrey13,
+    secondaryContainer = OffWhite98,
+    outline = LightGrey94,
+    onPrimary = RoyalBlue65,
+    onSecondary = Grey26
 )
 
 @Composable
@@ -45,10 +51,10 @@ fun QuizzoTheme(
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {
-        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
-            val context = LocalContext.current
-            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-        }
+//        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+//            val context = LocalContext.current
+//            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+//        }
 
         darkTheme -> DarkColorScheme
         else -> LightColorScheme
@@ -64,7 +70,64 @@ fun QuizzoTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = Typography.copy(
+            headlineLarge = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = SpDimensions.HeadlineLarge,
+                lineHeight = 28.sp,
+                letterSpacing = 0.5.sp,
+                color = MaterialTheme.colorScheme.inversePrimary
+            ),
+            bodyLarge = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.Medium,
+                fontSize = SpDimensions.BodyLarge,
+                lineHeight = 24.sp,
+                letterSpacing = 0.5.sp,
+                color = MaterialTheme.colorScheme.onSecondary
+            ),
+            bodyMedium = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = SpDimensions.BodyMedium,
+                lineHeight = 24.sp,
+                letterSpacing = 0.5.sp,
+                color = MaterialTheme.colorScheme.onSecondary
+            ),
+            bodySmall = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.Normal,
+                fontSize = SpDimensions.BodySmall,
+                lineHeight = 20.sp,
+                letterSpacing = 0.5.sp,
+                color = MaterialTheme.colorScheme.onSecondary
+            ),
+            titleMedium = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = SpDimensions.TitleMedium,
+                lineHeight = 22.sp,
+                letterSpacing = 0.5.sp,
+                color = MaterialTheme.colorScheme.inversePrimary
+            ),
+            titleLarge = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.SemiBold,
+                fontSize = SpDimensions.TitleLarge,
+                lineHeight = 24.sp,
+                letterSpacing = 0.5.sp,
+                color = MaterialTheme.colorScheme.inversePrimary
+            ),
+            headlineMedium = TextStyle(
+                fontFamily = fontFamily,
+                fontWeight = FontWeight.Bold,
+                fontSize = SpDimensions.HeadlineMedium,
+                lineHeight = 24.sp,
+                letterSpacing = 0.5.sp,
+                color = MaterialTheme.colorScheme.inversePrimary
+            )
+        ),
         content = content
     )
 }
