@@ -35,6 +35,8 @@ runtime-livedata = "1.5.1"
 ui-text-google-fonts = "1.5.1"
 vico = "1.11.3"
 gpsCoroutines = "1.7.1"
+appcompat = "1.6.1"
+material = "1.9.0"
 
 
 [libraries]
@@ -92,12 +94,15 @@ vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", ve
 vico-core = { group = "com.patrykandpatrick.vico", name = "core", version.ref = "vico" }
 gpsCoroutines = {module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "gpsCoroutines"}
 protolite-well-known-types = { group = "com.google.firebase", name = "protolite-well-known-types", version = "18.0.0" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 [plugins]
 com-android-application = { id = "com.android.application", version.ref = "agp" }
 org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "org-jetbrains-kotlin-android" }
 hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt-android" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+com-android-library = { id = "com.android.library", version.ref = "agp" }
 
 [bundles]
 

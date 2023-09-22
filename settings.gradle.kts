@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Quizzo"
 include(":app")
- 
+include(":data")

@@ -21,10 +21,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-
-//        ksp {
-//            arg(RoomSchemaArgProvider(File(projectDir, "schemas")))
-//        }
     }
 
     buildTypes {
@@ -57,7 +53,7 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":data"))
     implementation(libs.core.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.activity.compose)
@@ -78,9 +74,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
     ksp(libs.androidx.hilt.compiler)
-    implementation(libs.androidx.room.runtime)
-    ksp(libs.androidx.room.compiler)
-    implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.lifecycle.runtime.compose)
@@ -116,12 +109,3 @@ dependencies {
 }
 
 
-class RoomSchemaArgProvider(
-    @get:InputDirectory
-    @get:PathSensitive(PathSensitivity.RELATIVE)
-    val schemaDir: File
-) : CommandLineArgumentProvider {
-    override fun asArguments(): Iterable<String> {
-        return listOf("room.schemaLocation=${schemaDir.path}")
-    }
-}

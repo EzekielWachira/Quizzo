@@ -34,6 +34,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.ui.screens.onboarding.OnboardingScreen
+import com.ezzy.quizzo.ui.screens.sign_up.SignupStepsScreen
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.ezzy.quizzo.ui.theme.RoyalBlue65
 
@@ -52,7 +53,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize()
                     ) {
 
-                        OnboardingScreen(rememberNavController())
+                        SignupStepsScreen()
                     }
                 }
             }

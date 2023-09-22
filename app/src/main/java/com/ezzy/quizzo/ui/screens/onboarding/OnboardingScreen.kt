@@ -1,5 +1,6 @@
 package com.ezzy.quizzo.ui.screens.onboarding
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -58,15 +59,16 @@ fun OnboardingScreen(navController: NavController) {
     }
 
 
-        OnboardingPager(
-            pagerState = pagerState, navController = navController,
-            modifier = Modifier.fillMaxSize()
-        )
+    OnboardingPager(
+        pagerState = pagerState, navController = navController,
+        modifier = Modifier.fillMaxSize()
+    )
 
 
 }
 
 @Preview
+@Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun OnboardingScreenPreview() {
     QuizzoTheme {
@@ -137,7 +139,6 @@ fun OnboardingPager(
                         )
 
                     }
-
 
 
                 }

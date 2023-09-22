@@ -5,4 +5,9 @@
     <string name="create_share">Create, share and play quizzes whenever and wherever you want</string>
     <string name="find_fun">Find fun to boost your knowledge</string>
     <string name="play_and_take">Play and take quiz together with your friends.</string>
+    <string name="skip">Skip</string>
+    <string name="account_type">What type of account do you like to create?</string>
+    <string name="skip_it">You can skip it if you are not sure</string>
+    <string name="personal">Personal</string>
+    <string name="describe_workplace">Describe a workplace that suits you 💼</string>
 </resources>
