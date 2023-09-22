@@ -33,6 +33,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
+import com.ezzy.quizzo.ui.screens.main.MainScreen
 import com.ezzy.quizzo.ui.screens.onboarding.OnboardingScreen
 import com.ezzy.quizzo.ui.screens.sign_up.SignupStepsScreen
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
@@ -55,7 +56,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize()
                     ) {
 
-                        SignupStepsScreen()
+                        MainScreen()
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package com.ezzy.quizzo.navigation
+package com.ezzy.quizzo.navigation.graphs
 
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically

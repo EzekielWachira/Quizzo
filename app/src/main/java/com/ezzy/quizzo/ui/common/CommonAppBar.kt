@@ -24,7 +24,8 @@ fun CommonAppBar(modifier: Modifier = Modifier, onBackClicked: () -> Unit = {}) 
 
         IconButton(onClick = { onBackClicked() }) {
             Icon(
-                imageVector = Icons.Filled.ArrowBack, contentDescription = "Back arrow",
+                imageVector = Icons.Filled.ArrowBack,
+                contentDescription = "Back arrow",
                 tint = MaterialTheme.colorScheme.inversePrimary
             )
         }

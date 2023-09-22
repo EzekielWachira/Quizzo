@@ -12,6 +12,31 @@ import java.util.Date
 import java.util.Locale
 import java.util.regex.Pattern
 
+private val PUNCTUATION = listOf(", ", "; ", ": ", " ")
+fun String.smartTruncateSmall(length: Int): String {
+    val words = split("")
+    var added = 0
+    var hasMore = false
+    val builder = StringBuilder()
+
+    for (word in words) {
+        if (builder.length > length) {
+            hasMore = true
+            break
+        }
+        builder.append(word)
+        builder.append("")
+        added += 1
+    }
+    PUNCTUATION.map {
+        if (builder.endsWith(it)) {
+            builder.replace(builder.length - it.length, builder.length, "")
+        }
+    }
+    if (hasMore) builder.append("...")
+    return builder.toString()
+}
+
 fun Long.toSmallDate(): String {
     val date = Date(this)
     val format = SimpleDateFormat("MM/dd/yyyy", Locale.getDefault())

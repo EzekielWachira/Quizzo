@@ -35,4 +35,17 @@
     <string name="continue_with_google">Continue with Google</string>
     <string name="continue_with_apple">Continue with Apple</string>
     <string name="ok">OK</string>
+    <string name="home">Home</string>
+    <string name="library">Library</string>
+    <string name="join">Join</string>
+    <string name="add">Create</string>
+    <string name="profile">Profile</string>
+    <string name="play_quiz_together">Play quiz together with \nyour fiends now!</string>
+    <string name="find_friends">Find Friends</string>
+    <string name="view_all">View all</string>
+    <string name="discover">Discover</string>
+    <string name="top_authors">Top Authors</string>
+    <string name="top_collections">Top Collections</string>
+    <string name="trending_quiz">Trending Quiz</string>
+    <string name="top_pics">Top Pics</string>
 </resources>

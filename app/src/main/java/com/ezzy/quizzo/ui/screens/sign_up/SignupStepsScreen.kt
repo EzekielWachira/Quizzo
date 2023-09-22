@@ -8,10 +8,9 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
-import com.ezzy.quizzo.navigation.signUpStepsNavGraph
+import com.ezzy.quizzo.navigation.graphs.signUpStepsNavGraph
 import com.ezzy.quizzo.navigation.utils.NavDestinations
 import com.ezzy.quizzo.ui.screens.sign_up.components.AppBarWithProgress
 import com.ezzy.quizzo.ui.screens.sign_up.state.ProgressState
