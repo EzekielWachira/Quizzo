@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -27,7 +28,9 @@ import java.util.Locale
 fun CommonFadedButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit = {},
-    label: String
+    label: String,
+    containerColor: Color,
+    textColor: Color
 ) {
 
     Box(modifier = modifier, contentAlignment = Alignment.Center) {
@@ -48,7 +51,7 @@ fun CommonFadedButton(
                 Button(
                     onClick = onClick,
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.onSecondaryContainer
+                        containerColor = containerColor
                     ),
                     modifier = Modifier
                         .fillMaxWidth()
@@ -58,7 +61,7 @@ fun CommonFadedButton(
                     Text(
                         text = label,
                         style = MaterialTheme.typography.titleMedium,
-                        color = MaterialTheme.colorScheme.tertiary
+                        color = textColor
                     )
 
                 }
@@ -78,6 +81,8 @@ fun CommonFadedButton(
 @Composable
 fun CommonFadedButtonPreview() {
     QuizzoTheme {
-        CommonFadedButton(modifier =  Modifier.fillMaxWidth(), label = "Skip")
+        CommonFadedButton(modifier =  Modifier.fillMaxWidth(), label = "Skip",
+            containerColor = MaterialTheme.colorScheme.onSecondaryContainer,
+            textColor = MaterialTheme.colorScheme.tertiary)
     }
 }

@@ -45,10 +45,10 @@ fun AccountTypeScreen(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .padding(DpDimensions.Normal)
+                    .padding(horizontal = DpDimensions.Normal)
             ) {
 
-//                Spacer(modifier = Modifier.height(DpDimensions.Dp20))
+                Spacer(modifier = Modifier.height(DpDimensions.Dp20))
 
                 Text(
                     text = stringResource(id = R.string.account_type),
@@ -85,7 +85,9 @@ fun AccountTypeScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
                     navController.navigate(WORKPLACE)
-                })
+                },
+                containerColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                textColor = MaterialTheme.colorScheme.tertiary)
 
         }
 

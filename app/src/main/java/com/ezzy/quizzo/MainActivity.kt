@@ -37,7 +37,9 @@ import com.ezzy.quizzo.ui.screens.onboarding.OnboardingScreen
 import com.ezzy.quizzo.ui.screens.sign_up.SignupStepsScreen
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.ezzy.quizzo.ui.theme.RoyalBlue65
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

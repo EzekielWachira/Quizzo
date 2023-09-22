@@ -8,9 +8,13 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.ezzy.quizzo.navigation.utils.NavDestinations.SignupSteps.ACCOUNT_TYPE
+import com.ezzy.quizzo.navigation.utils.NavDestinations.SignupSteps.CREATE_ACCOUNT_1
+import com.ezzy.quizzo.navigation.utils.NavDestinations.SignupSteps.CREATE_ACCOUNT_2
 import com.ezzy.quizzo.navigation.utils.NavDestinations.SignupSteps.SIGNUP_STEPS
 import com.ezzy.quizzo.navigation.utils.NavDestinations.SignupSteps.WORKPLACE
 import com.ezzy.quizzo.ui.screens.sign_up.AccountTypeScreen
+import com.ezzy.quizzo.ui.screens.sign_up.CreateAccountScreen
+import com.ezzy.quizzo.ui.screens.sign_up.UsernameScreen
 import com.ezzy.quizzo.ui.screens.sign_up.WorkPlaceScreen
 
 fun NavGraphBuilder.signUpStepsNavGraph(navController: NavController) {
@@ -43,6 +47,20 @@ fun NavGraphBuilder.signUpStepsNavGraph(navController: NavController) {
             exitTransition = { exitTransitionAnimation }
         ) {
             WorkPlaceScreen(navController = navController)
+        }
+
+        composable(route = CREATE_ACCOUNT_1,
+            enterTransition = { enterTransitionAnimation },
+            exitTransition = { exitTransitionAnimation }
+        ) {
+            CreateAccountScreen(navController = navController)
+        }
+
+        composable(route = CREATE_ACCOUNT_2,
+            enterTransition = { enterTransitionAnimation },
+            exitTransition = { exitTransitionAnimation }
+        ) {
+            UsernameScreen(navController = navController)
         }
 
     }

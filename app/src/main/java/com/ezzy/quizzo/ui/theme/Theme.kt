@@ -29,7 +29,8 @@ private val DarkColorScheme = darkColorScheme(
     outline = DarkSlateBlue23,
     onPrimary = RoyalBlue65,
     onSecondary = Grey88,
-    onSecondaryContainer = BlueGray23
+    onSecondaryContainer = BlueGray23,
+    onTertiaryContainer = Color.White
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -42,7 +43,8 @@ private val LightColorScheme = lightColorScheme(
     outline = LightGrey94,
     onPrimary = RoyalBlue65,
     onSecondary = Grey26,
-    onSecondaryContainer = Lavender96
+    onSecondaryContainer = Lavender96,
+    onTertiaryContainer = Color.Black
 )
 
 @Composable

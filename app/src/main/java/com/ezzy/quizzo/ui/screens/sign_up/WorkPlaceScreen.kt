@@ -45,10 +45,10 @@ fun WorkPlaceScreen(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier
                     .weight(1f)
-                    .padding(DpDimensions.Normal)
+                    .padding(horizontal = DpDimensions.Normal)
             ) {
 
-//                Spacer(modifier = Modifier.height(DpDimensions.Dp20))
+                Spacer(modifier = Modifier.height(DpDimensions.Dp20))
 
                 Text(
                     text = stringResource(id = R.string.describe_workplace),
@@ -84,8 +84,10 @@ fun WorkPlaceScreen(navController: NavController) {
             CommonFadedButton(label = stringResource(R.string.skip),
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
-//                    navController.navigate(NavDestinations.SignupSteps.WORKPLACE)
-                })
+                    navController.navigate(NavDestinations.SignupSteps.CREATE_ACCOUNT_1)
+                },
+                containerColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                textColor = MaterialTheme.colorScheme.tertiary)
 
         }
 
