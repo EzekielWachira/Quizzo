@@ -44,21 +44,21 @@ val discovers = listOf(
 val trending = listOf(
     Discover(
         title = "Let's Memorize the Names of the Flowers",
-        image = R.drawable.flowers_2,
+        image = R.drawable.flowers_5,
         user = "John Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Turquoise48
     ),
     Discover(
         title = "Earth is Our Home and Will Always Be",
-        image = R.drawable.butterfly,
+        image = R.drawable.flowers_4,
         user = "Jane Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Orange53
     ),
     Discover(
         title = "Recycle to Keep our World Clean as Always",
-        image = R.drawable.recycle,
+        image = R.drawable.forest_1,
         user = "Jane Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Coral70
@@ -68,21 +68,21 @@ val trending = listOf(
 val topPics = listOf(
     Discover(
         title = "Save Life Around, Green Our Earth!",
-        image = R.drawable.clean_1,
+        image = R.drawable.earth_1,
         user = "John Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Turquoise48
     ),
     Discover(
         title = "Earth is Our Home and Will Always Be",
-        image = R.drawable.play,
+        image = R.drawable.flowers_3,
         user = "Jane Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Orange53
     ),
     Discover(
         title = "Recycle to Keep our World Clean as Always",
-        image = R.drawable.book_2,
+        image = R.drawable.globe_1,
         user = "Jane Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Coral70

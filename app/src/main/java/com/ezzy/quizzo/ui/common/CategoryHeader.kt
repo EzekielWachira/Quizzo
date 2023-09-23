@@ -3,6 +3,7 @@ package com.ezzy.quizzo.ui.common
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.IconButton
 import androidx.compose.material.Text
@@ -15,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
@@ -41,8 +43,9 @@ fun CategoryHeader(
         TextButton(onClick = onClick) {
             Text(
                 text = stringResource(R.string.view_all),
-                style = MaterialTheme.typography.titleLarge,
-                color = MaterialTheme.colorScheme.onPrimary
+                style = MaterialTheme.typography.titleMedium,
+                color = MaterialTheme.colorScheme.onPrimary,
+
             )
         }
 
@@ -52,6 +55,7 @@ fun CategoryHeader(
                 contentDescription = "Right arrow",
                 tint = MaterialTheme.colorScheme.onPrimary,
                 modifier = Modifier.size(DpDimensions.Dp24)
+
             )
         }
 

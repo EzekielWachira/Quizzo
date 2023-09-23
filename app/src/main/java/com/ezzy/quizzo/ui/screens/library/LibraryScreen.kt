@@ -14,7 +14,10 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
+import com.ezzy.quizzo.R
+import com.ezzy.quizzo.ui.common.LogoAppBarWithTwoActions
 import com.ezzy.quizzo.ui.theme.DarkGrey11
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -33,7 +36,19 @@ fun LibraryScreen(navController: NavController) {
     }
 
 
-    Scaffold { paddingValues ->
+    Scaffold(
+        topBar = {
+            LogoAppBarWithTwoActions(
+                icon1 = R.drawable.search,
+                icon2 = R.drawable.notification,
+                title = stringResource(id = R.string.library),
+                onSearchClick = {},
+                onNotificationClick = {},
+                onLogoClick = {},
+                isNotificationIconVisible = false
+            )
+        }
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .padding(paddingValues)

@@ -44,7 +44,7 @@ fun CollectionItem(
                 .fillMaxSize()
                 .paint(
                     painter = painterResource(id = collection.image),
-                    contentScale = ContentScale.FillBounds
+                    contentScale = ContentScale.Crop
                 )
                 .background(
                     brush = Brush.verticalGradient(

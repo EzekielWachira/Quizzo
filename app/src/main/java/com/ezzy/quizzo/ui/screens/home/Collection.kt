@@ -8,7 +8,7 @@ data class Collection(
     val title: String
 )
 val collections = listOf(
-    Collection(title = "Education", image = R.drawable.colors),
-    Collection(title = "Games", image = R.drawable.vehicle_1),
-    Collection(title = "Business", image = R.drawable.business_2),
+    Collection(title = "Education", image = R.drawable.person_books),
+    Collection(title = "Games", image = R.drawable.gaming_2),
+    Collection(title = "Business", image = R.drawable.ideass),
 )
