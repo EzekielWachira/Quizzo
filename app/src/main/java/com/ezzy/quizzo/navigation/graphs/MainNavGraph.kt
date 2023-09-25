@@ -34,7 +34,9 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
 
         composable(
             route = Screen.Home.route,
-            enterTransition = { enterTransitionAnimation },
+            enterTransition = {
+                enterTransitionAnimation
+            },
             exitTransition = { exitTransitionAnimation }
         ) {
             HomeScreen(navController = navController)
@@ -67,6 +69,5 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
         ) {
             ProfileScreen(navController = navController)
         }
-
     }
 }

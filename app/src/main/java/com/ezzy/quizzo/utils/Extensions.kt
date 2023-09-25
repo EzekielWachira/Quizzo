@@ -1,5 +1,8 @@
 package com.ezzy.quizzo.utils
 
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.drawBehind
@@ -76,3 +79,15 @@ fun String.isValidPassword(): Boolean {
 fun String.isValidUsername(): Boolean {
     return length >= 5
 }
+
+fun slideOutVerticallyEnterAnimation() =
+    slideOutVertically(
+        animationSpec = tween(700),
+        targetOffsetY = { it }
+    )
+
+fun slideInVerticallyEnterAnimation() =
+    slideInVertically(
+        animationSpec = tween(700),
+        initialOffsetY = { it }
+    )

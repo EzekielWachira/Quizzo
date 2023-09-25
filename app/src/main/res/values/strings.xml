@@ -48,4 +48,9 @@
     <string name="top_collections">Top Collections</string>
     <string name="trending_quiz">Trending Quiz</string>
     <string name="top_pics">Top Pics</string>
+    <string name="my_quizzo">My Quizzo</string>
+    <string name="favorites">Favorites</string>
+    <string name="collaboration">Collaboration</string>
+    <string name="collections">Collections</string>
+    <string name="collection_details">Collection Details</string>
 </resources>

@@ -30,13 +30,17 @@ import com.ezzy.quizzo.ui.theme.QuizzoTheme
 @Composable
 fun CollectionItem(
     modifier: Modifier = Modifier,
-    collection: Collection
+    collection: Collection,
+    onClick: (Collection) -> Unit = {}
 ) {
 
-    Surface(shape = RoundedCornerShape(DpDimensions.Small),
+    Surface(
+        shape = RoundedCornerShape(DpDimensions.Small),
         modifier = modifier
             .width(200.dp)
-            .height(120.dp)) {
+            .height(120.dp),
+        onClick = { onClick(collection) }
+    ) {
 
 
         Box(

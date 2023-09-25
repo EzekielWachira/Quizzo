@@ -3,6 +3,13 @@ package com.ezzy.quizzo.navigation.utils
 object NavDestinations {
 
 
+
+    object TopCollections {
+        const val TOP_COLLECTIONS_MAIN = "top_collections_main"
+        const val TOP_COLLECTIONS = "top_collections"
+        const val TOP_COLLECTION_DETAILS = "top_collection_details/{collection}"
+
+    }
     object Main {
         const val MAIN = "main"
     }
