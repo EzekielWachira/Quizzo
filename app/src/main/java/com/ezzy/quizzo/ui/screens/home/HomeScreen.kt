@@ -26,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
+import com.ezzy.quizzo.navigation.utils.NavDestinations.TopAuthors.TOP_AUTHORS_MAIN
 import com.ezzy.quizzo.navigation.utils.NavDestinations.TopCollections.TOP_COLLECTIONS_MAIN
 import com.ezzy.quizzo.ui.common.CategoryHeader
 import com.ezzy.quizzo.ui.common.CustomPadding
@@ -105,7 +106,8 @@ fun HomeScreen(navController: NavController) {
             ) {
                 CategoryHeader(
                     categoryTitle = stringResource(R.string.top_authors),
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = { navController.navigate(TOP_AUTHORS_MAIN) }
                 )
             }
 

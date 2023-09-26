@@ -34,7 +34,7 @@ fun TopCard(
 ) {
 
     Surface(
-        shape = RoundedCornerShape(DpDimensions.Small),
+        shape = RoundedCornerShape(DpDimensions.Dp20),
         color = RoyalBlue65,
         modifier = modifier.height(170.dp)
     ) {

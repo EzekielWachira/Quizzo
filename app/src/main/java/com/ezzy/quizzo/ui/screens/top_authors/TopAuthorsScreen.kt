@@ -30,6 +30,7 @@ import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.ezzy.quizzo.utils.showToast
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.google.gson.Gson
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -74,7 +75,9 @@ fun TopAuthorsScreen(navController: NavController) {
                     AuthorItem(author = author, modifier = Modifier.fillMaxWidth(),
                         onFollowClick = { context.showToast("Follow") },
                         onUnFollowClick = { context.showToast("Un Follow") },
-                        onClick = { }
+                        onClick = { author ->
+                            navController.navigate("top_authors_details/${Gson().toJson(author)}")
+                        }
                     )
                 }
             }

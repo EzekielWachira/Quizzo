@@ -14,6 +14,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.navigation.BottomNavBar
 import com.ezzy.quizzo.navigation.Screen
 import com.ezzy.quizzo.navigation.graphs.mainNavGraph
+import com.ezzy.quizzo.navigation.graphs.topAuthorNavGraph
 import com.ezzy.quizzo.navigation.graphs.topCollectionsNavGraph
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Main.MAIN
 
@@ -49,6 +50,7 @@ fun MainScreen() {
 
             mainNavGraph(navController)
             topCollectionsNavGraph(navController)
+            topAuthorNavGraph(navController)
 
         }
     }

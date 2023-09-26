@@ -10,6 +10,13 @@ object NavDestinations {
         const val TOP_COLLECTION_DETAILS = "top_collection_details/{collection}"
 
     }
+
+    object TopAuthors {
+        const val TOP_AUTHORS_MAIN = "top_authors_main"
+        const val TOP_AUTHORS = "top_authors"
+        const val TOP_AUTHORS_DETAILS = "top_authors_details/{author}"
+    }
+
     object Main {
         const val MAIN = "main"
     }

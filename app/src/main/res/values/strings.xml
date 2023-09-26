@@ -55,4 +55,8 @@
     <string name="collection_details">Collection Details</string>
     <string name="follow">Follow</string>
     <string name="following">Following</string>
+    <string name="plays">Plays</string>
+    <string name="players">Players</string>
+    <string name="followers">Followers</string>
+    <string name="about">About</string>
 </resources>

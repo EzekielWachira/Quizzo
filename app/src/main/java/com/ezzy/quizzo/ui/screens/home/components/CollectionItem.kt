@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ezzy.quizzo.ui.screens.home.Collection
 import com.ezzy.quizzo.ui.screens.home.collections
@@ -31,14 +32,15 @@ import com.ezzy.quizzo.ui.theme.QuizzoTheme
 fun CollectionItem(
     modifier: Modifier = Modifier,
     collection: Collection,
-    onClick: (Collection) -> Unit = {}
+    onClick: (Collection) -> Unit = {},
+    height: Dp = 120.dp
 ) {
 
     Surface(
-        shape = RoundedCornerShape(DpDimensions.Small),
+        shape = RoundedCornerShape(DpDimensions.Dp20),
         modifier = modifier
             .width(200.dp)
-            .height(120.dp),
+            .height(height),
         onClick = { onClick(collection) }
     ) {
 
