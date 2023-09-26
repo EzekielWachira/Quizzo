@@ -53,4 +53,6 @@
     <string name="collaboration">Collaboration</string>
     <string name="collections">Collections</string>
     <string name="collection_details">Collection Details</string>
+    <string name="follow">Follow</string>
+    <string name="following">Following</string>
 </resources>

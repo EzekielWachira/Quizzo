@@ -82,7 +82,7 @@ fun AppBarWithSearch(
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.padding(
-                horizontal = DpDimensions.Normal,
+                horizontal = DpDimensions.Smallest,
                 vertical = DpDimensions.Small
             )
         ) {

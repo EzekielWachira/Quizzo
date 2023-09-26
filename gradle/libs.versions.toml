@@ -8,6 +8,7 @@ charts = "1.0.4"
 coil-compose = "2.4.0"
 core = "3.5.1"
 datastorePreferences = "1.0.0"
+gson = "2.10.1"
 hilt-android = "2.48"
 ksp = "1.9.0-1.0.13"
 hilt-compiler = "1.0.0"
@@ -67,6 +68,7 @@ charts = { module = "com.carlosgub.kotlinm.charts:charts", version.ref = "charts
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil-compose" }
 converter-moshi = { module = "com.squareup.retrofit2:converter-moshi", version.ref = "retrofit" }
 core = { module = "com.google.zxing:core", version.ref = "core" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt-android" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }

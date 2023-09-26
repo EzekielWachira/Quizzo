@@ -110,6 +110,7 @@ dependencies {
     implementation (libs.gpsCoroutines)
     implementation(libs.chart)
     implementation(libs.charts)
+    implementation(libs.gson)
 }
 
 

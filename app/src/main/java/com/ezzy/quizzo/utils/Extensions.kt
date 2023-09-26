@@ -1,5 +1,7 @@
 package com.ezzy.quizzo.utils
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -91,3 +93,7 @@ fun slideInVerticallyEnterAnimation() =
         animationSpec = tween(700),
         initialOffsetY = { it }
     )
+
+fun Context.showToast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
