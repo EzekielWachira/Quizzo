@@ -1,4 +1,4 @@
-package com.ezzy.quizzo.ui.screens.top_authors_details.components
+package com.ezzy.quizzo.ui.common
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.animation.animateColorAsState
@@ -35,19 +35,13 @@ import com.ezzy.quizzo.ui.theme.QuizzoTheme
 fun CustomTab(
     modifier: Modifier = Modifier,
     selectedIndex: Int = 0,
-    onClick: (index: Int) -> Unit = {}
+    onClick: (index: Int) -> Unit = {},
+    tabTitles: List<String>,
 ) {
 
     var currentIndex by remember {
         mutableStateOf(0)
     }
-
-    val titles = listOf(
-        stringResource(id = R.string.app_name),
-        stringResource(id = R.string.collections),
-        stringResource(R.string.about)
-    )
-
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center
@@ -58,9 +52,9 @@ fun CustomTab(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(DpDimensions.Small)
         ) {
-            repeat(3) {
+            repeat(tabTitles.size) {
                 Tab(
-                    isSelected = selectedIndex == it, text = titles[it],
+                    isSelected = selectedIndex == it, text = tabTitles[it],
                     modifier = Modifier.weight(1f),
                     index = it,
                     onClick = { index -> onClick(index) }
@@ -119,6 +113,13 @@ fun Tab(
 @Composable
 fun CustomTabPreview() {
     QuizzoTheme {
-        CustomTab(modifier = Modifier.fillMaxWidth())
+        CustomTab(
+            modifier = Modifier.fillMaxWidth(),
+            tabTitles = listOf(
+                stringResource(id = R.string.app_name),
+                stringResource(id = R.string.collections),
+                stringResource(R.string.about)
+            )
+        )
     }
 }

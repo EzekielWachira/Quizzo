@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -30,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -40,7 +40,7 @@ import com.ezzy.quizzo.ui.screens.home.authors2
 import com.ezzy.quizzo.ui.screens.home.collections
 import com.ezzy.quizzo.ui.screens.home.components.CollectionItem
 import com.ezzy.quizzo.ui.screens.top_authors.components.AuthorItem
-import com.ezzy.quizzo.ui.screens.top_authors_details.components.CustomTab
+import com.ezzy.quizzo.ui.common.CustomTab
 import com.ezzy.quizzo.ui.screens.top_authors_details.components.TopAuthorStats
 import com.ezzy.quizzo.ui.screens.top_collection_details.components.AppBarWithSendAndMore
 import com.ezzy.quizzo.ui.screens.top_collection_details.components.TopCard
@@ -62,6 +62,12 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
     var selectedTabIndex by rememberSaveable {
         mutableStateOf(0)
     }
+
+    val tabTitles = listOf(
+        stringResource(id = R.string.app_name),
+        stringResource(id = R.string.collections),
+        stringResource(R.string.about)
+    )
 
     SideEffect {
         systemUiController.setSystemBarsColor(
@@ -99,13 +105,17 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
                     Spacer(modifier = Modifier.height(DpDimensions.Dp20))
                     author?.let { AuthorItem(author = it, modifier = Modifier.fillMaxWidth()) }
                     TopAuthorStats(Modifier.fillMaxWidth())
-                    CustomTab(selectedIndex = selectedTabIndex,
+                    CustomTab(
+                        selectedIndex = selectedTabIndex,
                         modifier = Modifier.fillMaxWidth(),
-                        onClick = {index -> selectedTabIndex = index })
-                    when(selectedTabIndex) {
+                        onClick = { index -> selectedTabIndex = index },
+                        tabTitles = tabTitles
+                    )
+                    when (selectedTabIndex) {
                         0 -> {
 
                         }
+
                         1 -> {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
@@ -126,7 +136,7 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
                                     modifier = Modifier.padding(horizontal = DpDimensions.Smallest)
                                 )
 
-                                IconButton(onClick = {  }) {
+                                IconButton(onClick = { }) {
                                     Icon(
                                         painter = painterResource(id = R.drawable.sort),
                                         contentDescription = "Sort icon",
@@ -141,10 +151,11 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
                 }
             }
 
-            when(selectedTabIndex) {
+            when (selectedTabIndex) {
                 0 -> {
 
                 }
+
                 1 -> {
                     items(collections) { collection ->
                         CollectionItem(collection = collection,
@@ -157,7 +168,7 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
             }
 
 
-            item { 
+            item {
                 Column {
                     Spacer(modifier = Modifier.height(DpDimensions.Dp20))
                 }
