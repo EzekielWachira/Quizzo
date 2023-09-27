@@ -35,6 +35,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.ui.common.LogoAppBarWithTwoActions
 import com.ezzy.quizzo.ui.theme.DarkGrey11
+import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
@@ -124,6 +125,17 @@ fun LibraryScreen(navController: NavController) {
 
             when (tabIndex) {
                 0 -> MyQuizzoScreen(modifier = Modifier.fillMaxSize())
+                1 -> FavoritesScreen(
+                    navController = navController,
+                    modifier = Modifier.fillMaxSize()
+                        .padding(horizontal = DpDimensions.Normal)
+                )
+
+                2 -> CollaborationScreen(
+                    navController = navController,
+                    modifier = Modifier.fillMaxSize()
+                        .padding(horizontal = DpDimensions.Normal)
+                )
             }
 
         }

@@ -1,17 +1,20 @@
-package com.ezzy.quizzo.ui.common
+package com.ezzy.quizzo.ui.screens.library.components
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.basicMarquee
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -31,20 +34,30 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.ezzy.quizzo.R
 import com.ezzy.quizzo.domain.model.Quiz
 import com.ezzy.quizzo.domain.model.quizzes
+import com.ezzy.quizzo.ui.common.CustomPadding
 import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 
 @OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
 @Composable
-fun QuizItem(
+fun CollaboratorItem(
     quiz: Quiz,
     onClick: (Quiz) -> Unit = {},
     modifier: Modifier = Modifier
 ) {
 
+    val images = listOf(
+        R.drawable.person_1,
+        R.drawable.person_2,
+        R.drawable.person_3,
+        R.drawable.person_4,
+        R.drawable.person_5
+    )
 
     Surface(
         border = BorderStroke(
@@ -147,21 +160,26 @@ fun QuizItem(
 
                     Row(verticalAlignment = Alignment.CenterVertically) {
 
-                        Image(
-                            painter = painterResource(id = quiz.author.avatar),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .size(DpDimensions.Dp24)
-                                .clip(CircleShape),
-                            contentScale = ContentScale.Crop,
-                        )
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            CustomImage(image = images.random())
+                            CustomImage(image = images.random(), modifier = Modifier.offset(x = (-10).dp))
+                            CustomImage(image = images.random(), modifier = Modifier.offset(x = (-20).dp) )
+                            CustomImage(image = images.random(), modifier = Modifier.offset(x = (-30).dp) )
+                            CustomImage(image = images.random(), modifier = Modifier.offset(x = (-40).dp) )
+                            CustomImage(image = images.random(), modifier = Modifier.offset(x = (-50).dp) )
+                        }
 
-                        Spacer(modifier = Modifier.width(DpDimensions.Small))
+
 
                         Text(
                             text = quiz.author.name,
                             style = MaterialTheme.typography.titleSmall,
                             color = MaterialTheme.colorScheme.inversePrimary,
+                            modifier = Modifier.offset(x = (-40).dp).basicMarquee()
+                                .weight(1f),
+                            maxLines = 1
                         )
                     }
                 }
@@ -170,15 +188,28 @@ fun QuizItem(
         }
 
     }
+}
 
+
+@Composable
+fun CustomImage(@DrawableRes image: Int, modifier: Modifier = Modifier) {
+    Image(
+        painter = painterResource(id = image),
+        contentDescription = null,
+        modifier = modifier.size(DpDimensions.Dp24)
+            .clip(CircleShape)
+            .border(border = BorderStroke(1.dp, color = Color.White), CircleShape),
+        contentScale = ContentScale.Crop,
+    )
 }
 
 
 @Preview
-@Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
-fun QuizItemPreview() {
+fun CollaboratorItemPreview() {
     QuizzoTheme {
-        QuizItem(quiz = quizzes[0], modifier = Modifier.fillMaxWidth())
+        CollaboratorItem(
+            quiz = quizzes[0], modifier = Modifier.fillMaxWidth()
+        )
     }
 }

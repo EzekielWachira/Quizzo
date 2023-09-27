@@ -18,21 +18,21 @@ data class Discover(
 val discovers = listOf(
     Discover(
         title = "Get Smarter with Productivity Quizzes",
-        image = R.drawable.calendar_3d,
+        image = R.drawable.calendar_2,
         user = "John Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Turquoise48
     ),
     Discover(
         title = "Great ideas come from Brilliant Minds",
-        image = R.drawable.calendar_3d,
+        image = R.drawable.ideass,
         user = "Jane Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Orange53
     ),
     Discover(
         title = "Great ideas come from Brilliant Minds",
-        image = R.drawable.calendar_3d,
+        image = R.drawable.plant,
         user = "Jane Doe",
         userImage = R.drawable.person_1,
         backgroundColor = Coral70

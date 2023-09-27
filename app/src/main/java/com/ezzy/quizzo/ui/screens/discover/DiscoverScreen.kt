@@ -47,7 +47,7 @@ fun DiscoverScreen(navController: NavController) {
     Scaffold(
         topBar = {
             AppBarWithSearch(
-                title = stringResource(id = R.string.top_collections),
+                title = stringResource(id = R.string.discover),
                 backIcon = Icons.AutoMirrored.Outlined.ArrowBack,
                 onBackClick = { navController.popBackStack() },
                 onSearchClick = { }

@@ -30,7 +30,7 @@ fun AuthorItem(modifier: Modifier = Modifier, author: Author) {
 
         Image(
             painter = painterResource(id = author.avatar), contentDescription = null,
-            modifier = Modifier.size(70.dp),
+            modifier = Modifier.size(50.dp),
             contentScale = ContentScale.Crop
         )
 

@@ -74,5 +74,12 @@ val Typography = Typography(
         fontSize = SpDimensions.TitleSmall,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
+    ),
+    headlineSmall =TextStyle(
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = SpDimensions.HeadlineSmall,
+        lineHeight = 22.sp,
+        letterSpacing = 0.5.sp
     )
 )
