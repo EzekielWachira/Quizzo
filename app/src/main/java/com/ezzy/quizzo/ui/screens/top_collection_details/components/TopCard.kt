@@ -10,18 +10,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.paint
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.RoyalBlue65
 
 @Composable
-fun TopCard(modifier: Modifier = Modifier) {
+fun TopCard(modifier: Modifier = Modifier,
+            height: Dp = 150.dp) {
 
     Surface(
         shape = RoundedCornerShape(DpDimensions.Dp20),
         color = RoyalBlue65,
-        modifier = modifier.height(150.dp)
+        modifier = modifier.height(height)
     ) {
 
         Box(

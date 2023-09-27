@@ -10,10 +10,11 @@ import androidx.compose.ui.unit.Dp
 fun CustomPadding(
     verticalPadding: Dp,
     horizontalPadding: Dp,
+    modifier: Modifier = Modifier,
     content: @Composable () -> Unit = {}
 ) {
     Column(
-        modifier = Modifier.padding(
+        modifier = modifier.padding(
             horizontal = horizontalPadding,
             vertical = verticalPadding
         )

@@ -35,12 +35,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
+import com.ezzy.quizzo.domain.model.quizzes
+import com.ezzy.quizzo.ui.common.CustomTab
+import com.ezzy.quizzo.ui.common.QuizItem
 import com.ezzy.quizzo.ui.screens.home.Author
 import com.ezzy.quizzo.ui.screens.home.authors2
 import com.ezzy.quizzo.ui.screens.home.collections
 import com.ezzy.quizzo.ui.screens.home.components.CollectionItem
 import com.ezzy.quizzo.ui.screens.top_authors.components.AuthorItem
-import com.ezzy.quizzo.ui.common.CustomTab
 import com.ezzy.quizzo.ui.screens.top_authors_details.components.TopAuthorStats
 import com.ezzy.quizzo.ui.screens.top_collection_details.components.AppBarWithSendAndMore
 import com.ezzy.quizzo.ui.screens.top_collection_details.components.TopCard
@@ -112,11 +114,7 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
                         tabTitles = tabTitles
                     )
                     when (selectedTabIndex) {
-                        0 -> {
-
-                        }
-
-                        1 -> {
+                        0, 1 -> {
                             Row(
                                 verticalAlignment = Alignment.CenterVertically,
                                 modifier = Modifier.fillMaxWidth()
@@ -153,7 +151,10 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
 
             when (selectedTabIndex) {
                 0 -> {
-
+                    items(quizzes) { quiz ->
+                        QuizItem(quiz = quiz, modifier = Modifier.fillMaxWidth(),
+                            onClick = {})
+                    }
                 }
 
                 1 -> {

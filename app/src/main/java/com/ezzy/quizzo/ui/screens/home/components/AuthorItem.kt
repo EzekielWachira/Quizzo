@@ -1,5 +1,6 @@
 package com.ezzy.quizzo.ui.screens.home.components
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -37,7 +38,7 @@ fun AuthorItem(modifier: Modifier = Modifier, author: Author) {
 
         Text(
             text = author.name,
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleSmall,
             color = MaterialTheme.colorScheme.inversePrimary
         )
 
@@ -45,6 +46,7 @@ fun AuthorItem(modifier: Modifier = Modifier, author: Author) {
 }
 
 @Preview
+@Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
 fun AuthorItemPreview() {
     QuizzoTheme {

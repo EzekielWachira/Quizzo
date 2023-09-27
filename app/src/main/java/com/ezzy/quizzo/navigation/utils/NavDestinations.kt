@@ -11,6 +11,11 @@ object NavDestinations {
 
     }
 
+    object Discover {
+        const val DISCOVER_MAIN = "discover_main"
+        const val DISCOVER = "discover"
+    }
+
     object TopAuthors {
         const val TOP_AUTHORS_MAIN = "top_authors_main"
         const val TOP_AUTHORS = "top_authors"

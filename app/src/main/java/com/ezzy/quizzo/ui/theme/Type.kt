@@ -67,5 +67,12 @@ val Typography = Typography(
         fontSize = SpDimensions.HeadlineMedium,
         lineHeight = 24.sp,
         letterSpacing = 0.5.sp
+    ),
+    titleSmall = TextStyle(
+        fontFamily = fontFamily,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = SpDimensions.TitleSmall,
+        lineHeight = 24.sp,
+        letterSpacing = 0.5.sp
     )
 )
