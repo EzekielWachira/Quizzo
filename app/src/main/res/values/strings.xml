@@ -59,4 +59,5 @@
     <string name="players">Players</string>
     <string name="followers">Followers</string>
     <string name="about">About</string>
+    <string name="search_email_name_">Search email, name or phone number</string>
 </resources>

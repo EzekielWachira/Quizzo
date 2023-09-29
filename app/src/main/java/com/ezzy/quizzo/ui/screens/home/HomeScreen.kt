@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Discover.DISCOVER_MAIN
+import com.ezzy.quizzo.navigation.utils.NavDestinations.FindFriends.FIND_FRIENDS_MAIN
 import com.ezzy.quizzo.navigation.utils.NavDestinations.TopAuthors.TOP_AUTHORS_MAIN
 import com.ezzy.quizzo.navigation.utils.NavDestinations.TopCollections.TOP_COLLECTIONS_MAIN
 import com.ezzy.quizzo.ui.common.CategoryHeader
@@ -80,7 +81,9 @@ fun HomeScreen(navController: NavController) {
                 verticalPadding = DpDimensions.Normal,
                 horizontalPadding = DpDimensions.Normal
             ) {
-                TopCard(onButtonClick = {}, modifier = Modifier.fillMaxWidth())
+                TopCard(onButtonClick = {
+                    navController.navigate(FIND_FRIENDS_MAIN)
+                }, modifier = Modifier.fillMaxWidth())
             }
 
             CustomPadding(verticalPadding = 0.dp, horizontalPadding = DpDimensions.Normal) {
