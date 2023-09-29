@@ -40,9 +40,7 @@ import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 
 @Composable
-fun UsernameScreen(navController: NavController) {
-
-    val viewModel: SignUpViewModel = hiltViewModel()
+fun UsernameScreen(navController: NavController, viewModel: SignUpViewModel) {
     val accountState by viewModel.accountState.collectAsStateWithLifecycle()
 
     Box(
@@ -140,7 +138,7 @@ fun UsernameScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
                     navController.navigate(NavDestinations.MAIN_APP) {
-                        popUpTo(NavDestinations.Auth.AUTH_MAIN) {
+                        popUpTo(NavDestinations.SignupSteps.SIGNUP_STEPS) {
                             inclusive = true
                         }
                     }.also {
@@ -160,6 +158,6 @@ fun UsernameScreen(navController: NavController) {
 @Composable
 fun UsernameScreenPreview() {
     QuizzoTheme {
-        UsernameScreen(rememberNavController())
+        UsernameScreen(rememberNavController(), hiltViewModel())
     }
 }

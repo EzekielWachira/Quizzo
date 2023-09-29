@@ -34,9 +34,8 @@ import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 
 @Composable
-fun WorkPlaceScreen(navController: NavController) {
+fun WorkPlaceScreen(navController: NavController, viewModel: SignUpViewModel) {
 
-    val viewModel: SignUpViewModel = hiltViewModel()
     val progressState by viewModel.progressState.collectAsStateWithLifecycle()
 
     Box(modifier = Modifier
@@ -110,6 +109,6 @@ fun WorkPlaceScreen(navController: NavController) {
 @Composable
 fun WorkPlaceScreenPreview() {
     QuizzoTheme {
-        WorkPlaceScreen(rememberNavController())
+        WorkPlaceScreen(rememberNavController(), hiltViewModel())
     }
 }

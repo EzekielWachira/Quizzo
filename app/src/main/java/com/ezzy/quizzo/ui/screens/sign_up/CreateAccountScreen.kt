@@ -43,9 +43,7 @@ import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 
 @Composable
-fun CreateAccountScreen(navController: NavController) {
-
-    val viewModel: SignUpViewModel = hiltViewModel()
+fun CreateAccountScreen(navController: NavController, viewModel: SignUpViewModel) {
     val profileState by viewModel.profileState.collectAsStateWithLifecycle()
     val progressState by viewModel.progressState.collectAsStateWithLifecycle()
 
@@ -167,6 +165,6 @@ fun CreateAccountScreen(navController: NavController) {
 @Composable
 fun CreateAccountScreenPreview() {
     QuizzoTheme {
-        CreateAccountScreen(rememberNavController())
+        CreateAccountScreen(rememberNavController(), hiltViewModel())
     }
 }

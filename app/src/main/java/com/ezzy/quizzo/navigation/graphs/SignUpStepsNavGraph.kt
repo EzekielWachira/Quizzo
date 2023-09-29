@@ -14,10 +14,11 @@ import com.ezzy.quizzo.navigation.utils.NavDestinations.SignupSteps.SIGNUP_STEPS
 import com.ezzy.quizzo.navigation.utils.NavDestinations.SignupSteps.WORKPLACE
 import com.ezzy.quizzo.ui.screens.sign_up.AccountTypeScreen
 import com.ezzy.quizzo.ui.screens.sign_up.CreateAccountScreen
+import com.ezzy.quizzo.ui.screens.sign_up.SignUpViewModel
 import com.ezzy.quizzo.ui.screens.sign_up.UsernameScreen
 import com.ezzy.quizzo.ui.screens.sign_up.WorkPlaceScreen
 
-fun NavGraphBuilder.signUpStepsNavGraph(navController: NavController) {
+fun NavGraphBuilder.signUpStepsNavGraph(navController: NavController, viewModel: SignUpViewModel) {
 
     val enterTransitionAnimation = slideInVertically(
         animationSpec = tween(700),
@@ -39,28 +40,28 @@ fun NavGraphBuilder.signUpStepsNavGraph(navController: NavController) {
             enterTransition = { enterTransitionAnimation },
             exitTransition = { exitTransitionAnimation }
         ) {
-            AccountTypeScreen(navController = navController)
+            AccountTypeScreen(navController = navController, viewModel)
         }
 
         composable(route = WORKPLACE,
             enterTransition = { enterTransitionAnimation },
             exitTransition = { exitTransitionAnimation }
         ) {
-            WorkPlaceScreen(navController = navController)
+            WorkPlaceScreen(navController = navController, viewModel)
         }
 
         composable(route = CREATE_ACCOUNT_1,
             enterTransition = { enterTransitionAnimation },
             exitTransition = { exitTransitionAnimation }
         ) {
-            CreateAccountScreen(navController = navController)
+            CreateAccountScreen(navController = navController, viewModel)
         }
 
         composable(route = CREATE_ACCOUNT_2,
             enterTransition = { enterTransitionAnimation },
             exitTransition = { exitTransitionAnimation }
         ) {
-            UsernameScreen(navController = navController)
+            UsernameScreen(navController = navController, viewModel)
         }
 
     }

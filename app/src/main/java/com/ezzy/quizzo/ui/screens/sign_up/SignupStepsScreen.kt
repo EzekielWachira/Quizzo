@@ -56,7 +56,7 @@ fun SignupStepsScreen() {
             startDestination = NavDestinations.SignupSteps.SIGNUP_STEPS,
             modifier = Modifier.padding(paddingValues)
         ) {
-            signUpStepsNavGraph(navController)
+            signUpStepsNavGraph(navController, signUpViewModel)
             appMainNavGraph(navController)
         }
 

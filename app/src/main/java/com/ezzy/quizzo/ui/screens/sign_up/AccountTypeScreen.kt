@@ -34,9 +34,8 @@ import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 
 @Composable
-fun AccountTypeScreen(navController: NavController) {
-
-    val viewModel: SignUpViewModel = hiltViewModel()
+fun AccountTypeScreen(navController: NavController, viewModel: SignUpViewModel) {
+    
     val progressState by viewModel.progressState.collectAsStateWithLifecycle()
 
     Box(modifier = Modifier
@@ -109,6 +108,6 @@ fun AccountTypeScreen(navController: NavController) {
 @Composable
 fun AccountTypeScreenPreview() {
     QuizzoTheme {
-        AccountTypeScreen(rememberNavController())
+        AccountTypeScreen(rememberNavController(), hiltViewModel())
     }
 }
