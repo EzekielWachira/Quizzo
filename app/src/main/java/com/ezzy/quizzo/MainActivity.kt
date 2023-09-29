@@ -36,6 +36,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.ui.screens.main.MainScreen
 import com.ezzy.quizzo.ui.screens.onboarding.OnboardingScreen
 import com.ezzy.quizzo.ui.screens.sign_up.SignupStepsScreen
+import com.ezzy.quizzo.ui.screens.splash_screen.SplashMain
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.ezzy.quizzo.ui.theme.RoyalBlue65
 import dagger.hilt.android.AndroidEntryPoint
@@ -56,7 +57,7 @@ class MainActivity : ComponentActivity() {
                         modifier = Modifier.fillMaxSize()
                     ) {
 
-                        MainScreen()
+                        SplashMain()
                     }
                 }
             }

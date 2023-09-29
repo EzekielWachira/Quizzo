@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.ezzy.quizzo.navigation.utils.NavDestinations.Auth.SIGN_UP
 import com.ezzy.quizzo.ui.screens.onboarding.components.ButtonsSection
 import com.ezzy.quizzo.ui.screens.onboarding.components.PagerIndicator
 import com.ezzy.quizzo.ui.theme.DarkGrey11
@@ -150,7 +151,7 @@ fun OnboardingPager(
 
             ButtonsSection(
                 modifier = Modifier.fillMaxWidth(),
-                onGetStartedClick = { },
+                onGetStartedClick = { navController.navigate(SIGN_UP) },
                 onHaveAccountClick = { }
             )
         }

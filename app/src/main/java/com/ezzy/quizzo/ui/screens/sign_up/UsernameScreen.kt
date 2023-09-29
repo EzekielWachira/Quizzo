@@ -27,6 +27,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
+import com.ezzy.quizzo.navigation.utils.NavDestinations
 import com.ezzy.quizzo.ui.common.CommonFadedButton
 import com.ezzy.quizzo.ui.common.SocialAccountButton
 import com.ezzy.quizzo.ui.common.SocialAccountButton2
@@ -138,7 +139,13 @@ fun UsernameScreen(navController: NavController) {
                 label = stringResource(R.string.sign_up),
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
-//                    navController.navigate(NavDestinations.SignupSteps.WORKPLACE)
+                    navController.navigate(NavDestinations.MAIN_APP) {
+                        popUpTo(NavDestinations.Auth.AUTH_MAIN) {
+                            inclusive = true
+                        }
+                    }.also {
+                        viewModel.saveIsLoggedIn(true)
+                    }
                 },
                 containerColor = MaterialTheme.colorScheme.onPrimary,
                 textColor = Color.White

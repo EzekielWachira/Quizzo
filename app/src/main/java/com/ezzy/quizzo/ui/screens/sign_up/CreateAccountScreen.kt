@@ -47,6 +47,8 @@ fun CreateAccountScreen(navController: NavController) {
 
     val viewModel: SignUpViewModel = hiltViewModel()
     val profileState by viewModel.profileState.collectAsStateWithLifecycle()
+    val progressState by viewModel.progressState.collectAsStateWithLifecycle()
+
     var isDatePickerOpen by rememberSaveable {
         mutableStateOf(false)
     }
@@ -134,6 +136,7 @@ fun CreateAccountScreen(navController: NavController) {
                 modifier = Modifier.fillMaxWidth(),
                 onClick = {
                     navController.navigate(NavDestinations.SignupSteps.CREATE_ACCOUNT_2)
+                        .also { viewModel.onProgress(progressState.progress + (1 - progressState.progress)) }
                 },
                 containerColor = MaterialTheme.colorScheme.onPrimary,
                 textColor = Color.White

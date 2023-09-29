@@ -413,4 +413,4 @@ val quizzes = listOf(
             isVerified = true
         )
     )
-)
+).take(10)

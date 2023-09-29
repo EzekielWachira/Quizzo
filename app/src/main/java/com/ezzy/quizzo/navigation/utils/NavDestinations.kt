@@ -2,7 +2,7 @@ package com.ezzy.quizzo.navigation.utils
 
 object NavDestinations {
 
-
+    const val MAIN_APP = "MAIN_APP"
 
     object TopCollections {
         const val TOP_COLLECTIONS_MAIN = "top_collections_main"
@@ -14,6 +14,21 @@ object NavDestinations {
     object Discover {
         const val DISCOVER_MAIN = "discover_main"
         const val DISCOVER = "discover"
+    }
+
+    object Splash {
+        const val SPLASH_MAIN = "splash_main"
+        const val SPLASH = "splash"
+    }
+
+    object Auth {
+        const val ONBOARDING = "onboarding"
+        const val SIGN_UP = "sign_up"
+        const val AUTH_MAIN = "auth_main"
+        const val AUTH = "auth"
+        const val AUTHENTICATION = "authentication"
+        const val REGISTRATION_MAIN = "registration_main"
+        const val REGISTRATION = "registration"
     }
 
     object FindFriends {

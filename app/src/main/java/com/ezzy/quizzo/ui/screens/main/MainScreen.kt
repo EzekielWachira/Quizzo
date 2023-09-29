@@ -13,6 +13,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.navigation.BottomNavBar
 import com.ezzy.quizzo.navigation.Screen
+import com.ezzy.quizzo.navigation.graphs.authMainNavGraph
 import com.ezzy.quizzo.navigation.graphs.discoverNavGraph
 import com.ezzy.quizzo.navigation.graphs.findFriendsNavGraph
 import com.ezzy.quizzo.navigation.graphs.mainNavGraph
@@ -55,6 +56,7 @@ fun MainScreen() {
             topAuthorNavGraph(navController)
             discoverNavGraph(navController)
             findFriendsNavGraph(navController)
+            authMainNavGraph(navController)
 
         }
     }

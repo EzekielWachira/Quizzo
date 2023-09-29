@@ -30,7 +30,7 @@ fun AppBarWithProgress(modifier: Modifier = Modifier, progressState: ProgressSta
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
     ) {
-        CommonAppBar(onBackClicked = onBackClicked)
+        CommonAppBar(onBackClicked = { onBackClicked() })
         LinearProgressIndicator(
             modifier = Modifier
                 .weight(.2f)
