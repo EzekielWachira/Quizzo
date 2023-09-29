@@ -63,7 +63,7 @@ fun SearchBar(
                 placeholder = {
                     Text(
                         text = placeholder,
-                        style = MaterialTheme.typography.bodySmall,
+                        style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.inverseSurface
                     )
                 },
