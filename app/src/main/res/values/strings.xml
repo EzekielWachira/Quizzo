@@ -60,4 +60,14 @@
     <string name="followers">Followers</string>
     <string name="about">About</string>
     <string name="search_email_name_">Search email, name or phone number</string>
+    <string name="play_quizzes_without_ads">Play Quizzes without \nads and restrictions</string>
+    <string name="settings">Settings</string>
+    <string name="personal_info">Personal Info</string>
+    <string name="notifications">Notifications</string>
+    <string name="music_effects"><![CDATA[Music & Effects]]></string>
+    <string name="security">Security</string>
+    <string name="help_center">Help Center</string>
+    <string name="about_quizzo">About Quizzo</string>
+    <string name="logout">Logout</string>
+    <string name="dark_mode">Dark Mode</string>
 </resources>

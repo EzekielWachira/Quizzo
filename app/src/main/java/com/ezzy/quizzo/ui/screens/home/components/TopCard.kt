@@ -1,5 +1,6 @@
 package com.ezzy.quizzo.ui.screens.home.components
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -66,6 +67,62 @@ fun TopCard(
 
                     Text(
                         text = stringResource(R.string.find_friends),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onPrimary
+                    )
+
+                }
+
+            }
+        }
+
+    }
+
+}
+
+
+@Composable
+fun TopCard(
+    modifier: Modifier = Modifier,
+    onButtonClick: () -> Unit = {},
+    title: String,
+    buttonText: String,
+    @DrawableRes image: Int
+) {
+
+    Surface(
+        shape = RoundedCornerShape(DpDimensions.Dp20),
+        color = RoyalBlue65,
+        modifier = modifier.height(170.dp)
+    ) {
+
+        Box(modifier = Modifier.paint(
+            painter = painterResource(id = image),
+            contentScale = ContentScale.Crop
+        ), contentAlignment = Alignment.Center) {
+
+            Column(
+                modifier = Modifier.padding(DpDimensions.Normal)
+                    .fillMaxWidth()
+            ) {
+
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = Color.White
+                )
+
+                Spacer(modifier = Modifier.height(DpDimensions.Dp20))
+
+                Button(
+                    onClick = onButtonClick,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color.White
+                    )
+                ) {
+
+                    Text(
+                        text = buttonText,
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onPrimary
                     )
