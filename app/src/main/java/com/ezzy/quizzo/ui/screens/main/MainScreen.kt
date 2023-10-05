@@ -8,6 +8,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -21,6 +23,7 @@ import com.ezzy.quizzo.navigation.graphs.settingsNavGraph
 import com.ezzy.quizzo.navigation.graphs.topAuthorNavGraph
 import com.ezzy.quizzo.navigation.graphs.topCollectionsNavGraph
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Main.MAIN
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 
 @Composable
 fun MainScreen() {
@@ -28,6 +31,12 @@ fun MainScreen() {
     var bottomBarVisible by rememberSaveable {
         mutableStateOf(false)
     }
+
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isSystemInDarkTheme by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(
+        initialValue = false
+    )
+    val useDarkIcons = !isSystemInDarkTheme
 
     val navController = rememberNavController()
 
@@ -43,7 +52,13 @@ fun MainScreen() {
     }
 
     Scaffold(
-        bottomBar = { BottomNavBar(navController = navController, visible = bottomBarVisible) }
+        bottomBar = {
+            BottomNavBar(
+                navController = navController,
+                visible = bottomBarVisible,
+                isSystemInDarkMode = isSystemInDarkTheme
+            )
+        }
     ) { paddingValues ->
 
         NavHost(
@@ -52,13 +67,13 @@ fun MainScreen() {
             modifier = Modifier.padding(paddingValues)
         ) {
 
-            mainNavGraph(navController)
+            mainNavGraph(navController, isSystemInDarkTheme)
             topCollectionsNavGraph(navController)
             topAuthorNavGraph(navController)
             discoverNavGraph(navController)
             findFriendsNavGraph(navController)
             authMainNavGraph(navController)
-            settingsNavGraph(navController)
+            settingsNavGraph(navController, isSystemInDarkTheme)
 
         }
     }

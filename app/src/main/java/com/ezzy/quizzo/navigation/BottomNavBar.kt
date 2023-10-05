@@ -36,7 +36,8 @@ import com.ezzy.quizzo.ui.theme.RoyalBlue65
 fun BottomNavBar(
     modifier: Modifier = Modifier,
     navController: NavController,
-    visible: Boolean = true
+    visible: Boolean = true,
+    isSystemInDarkMode: Boolean
 ) {
     AnimatedVisibility(
         visible = visible,
@@ -46,7 +47,7 @@ fun BottomNavBar(
         Column {
             Divider(color = MaterialTheme.colorScheme.outline)
             NavigationBar(
-                containerColor = if (isSystemInDarkTheme()) DarkGrey11 else White,
+                containerColor = if (isSystemInDarkMode) DarkGrey11 else White,
                 modifier = Modifier.padding(start = DpDimensions.Small, end = DpDimensions.Small)
             ) {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -98,6 +99,6 @@ fun BottomNavBar(
 @Composable
 fun BottomNavBarPreview() {
     QuizzoTheme {
-        BottomNavBar(navController = rememberNavController())
+        BottomNavBar(navController = rememberNavController(), isSystemInDarkMode = false)
     }
 }

@@ -15,12 +15,15 @@ import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
@@ -28,6 +31,7 @@ import com.ezzy.quizzo.domain.model.quizzes
 import com.ezzy.quizzo.ui.common.AppBarWithSearch
 import com.ezzy.quizzo.ui.common.HeaderWithSort
 import com.ezzy.quizzo.ui.common.QuizItem
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.screens.top_collection_details.components.TopCard
 import com.ezzy.quizzo.ui.theme.DarkGrey11
 import com.ezzy.quizzo.ui.theme.DpDimensions
@@ -37,8 +41,9 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 @Composable
 fun TopCollectionDetailsScreen(navController: NavController, collection: String?) {
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
-    val coroutineScope = rememberCoroutineScope()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val useDarkIcons = !isDarkModeEnabled
 
     SideEffect {
         systemUiController.setSystemBarsColor(

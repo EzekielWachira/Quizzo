@@ -13,17 +13,21 @@ import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.ui.common.AppBarWithSearch
 import com.ezzy.quizzo.ui.common.CustomStickyHeader
 import com.ezzy.quizzo.ui.screens.home.authors2
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.screens.top_authors.components.AuthorItem
 import com.ezzy.quizzo.ui.theme.DarkGrey11
 import com.ezzy.quizzo.ui.theme.DpDimensions
@@ -37,7 +41,9 @@ import com.google.gson.Gson
 fun TopAuthorsScreen(navController: NavController) {
 
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val useDarkIcons = !isDarkModeEnabled
     val context = LocalContext.current
 
     SideEffect {

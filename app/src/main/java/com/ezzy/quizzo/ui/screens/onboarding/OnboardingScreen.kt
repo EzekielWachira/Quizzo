@@ -20,6 +20,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,11 +31,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Auth.SIGN_UP
 import com.ezzy.quizzo.ui.screens.onboarding.components.ButtonsSection
 import com.ezzy.quizzo.ui.screens.onboarding.components.PagerIndicator
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.theme.DarkGrey11
 import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
@@ -48,8 +52,9 @@ fun OnboardingScreen(navController: NavController) {
     }
 
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
-    val coroutineScope = rememberCoroutineScope()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val useDarkIcons = !isDarkModeEnabled
 
     SideEffect {
         systemUiController.setSystemBarsColor(

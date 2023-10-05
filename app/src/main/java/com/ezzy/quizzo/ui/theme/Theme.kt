@@ -2,7 +2,14 @@ package com.ezzy.quizzo.ui.theme
 
 import android.app.Activity
 import android.os.Build
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.AnimationVector
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.TwoWayConverter
+import androidx.compose.animation.core.animateValueAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
@@ -18,6 +25,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import androidx.core.view.WindowCompat
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 
 private val DarkColorScheme = darkColorScheme(
     primary = RoyalBlue65,
@@ -61,13 +71,17 @@ fun QuizzoTheme(
     dynamicColor: Boolean = true,
     content: @Composable () -> Unit
 ) {
+    val viewModel: SettingsViewModel = hiltViewModel()
+    val isDarkTheme = viewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+
+
     val colorScheme = when {
 //        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
 //            val context = LocalContext.current
 //            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
 //        }
 
-        darkTheme -> DarkColorScheme
+        isDarkTheme.value -> DarkColorScheme
         else -> LightColorScheme
     }
     val view = LocalView.current

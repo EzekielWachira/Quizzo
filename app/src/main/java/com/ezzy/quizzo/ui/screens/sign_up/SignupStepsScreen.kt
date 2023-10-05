@@ -16,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.navigation.graphs.appMainNavGraph
 import com.ezzy.quizzo.navigation.graphs.signUpStepsNavGraph
 import com.ezzy.quizzo.navigation.utils.NavDestinations
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.screens.sign_up.components.AppBarWithProgress
 import com.ezzy.quizzo.ui.screens.splash_screen.SplashViewModel
 import com.ezzy.quizzo.ui.theme.DarkGrey11
@@ -26,7 +27,9 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 fun SignupStepsScreen() {
 
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val useDarkIcons = !isDarkModeEnabled
     val navController = rememberNavController()
 
     val viewModel: SplashViewModel = hiltViewModel()

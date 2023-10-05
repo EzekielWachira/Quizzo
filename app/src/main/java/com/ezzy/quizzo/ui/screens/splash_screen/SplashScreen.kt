@@ -34,6 +34,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ehsanmsz.mszprogressindicator.progressindicator.BallSpinFadeLoaderProgressIndicator
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.navigation.utils.NavDestinations
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.theme.DarkGrey11
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
@@ -42,8 +43,9 @@ import kotlinx.coroutines.delay
 @Composable
 fun SplashScreen(navController: NavController) {
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
-    val coroutineScope = rememberCoroutineScope()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val useDarkIcons = !isDarkModeEnabled
 
     val viewModel: SplashViewModel = hiltViewModel()
     val isLoggedIn by viewModel.isLoggedIn.collectAsStateWithLifecycle(initialValue = false)

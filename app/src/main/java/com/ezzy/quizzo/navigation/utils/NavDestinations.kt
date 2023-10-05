@@ -19,6 +19,7 @@ object NavDestinations {
     object Settings {
         const val SETTINGS_MAIN = "settings_main"
         const val SETTINGS = "settings"
+        const val NOTIFICATION_SETTINGS = "notification_settings"
     }
 
     object Splash {

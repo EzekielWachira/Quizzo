@@ -30,10 +30,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.ui.common.LogoAppBarWithTwoActions
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.theme.DarkGrey11
 import com.ezzy.quizzo.ui.theme.DpDimensions
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
@@ -42,8 +45,9 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 @Composable
 fun LibraryScreen(navController: NavController) {
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
-    val coroutineScope = rememberCoroutineScope()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val useDarkIcons = !isDarkModeEnabled
 
     var tabIndex by rememberSaveable {
         mutableIntStateOf(0)

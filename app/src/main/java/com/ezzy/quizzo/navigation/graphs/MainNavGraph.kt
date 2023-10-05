@@ -15,7 +15,7 @@ import com.ezzy.quizzo.ui.screens.join.JoinScreen
 import com.ezzy.quizzo.ui.screens.library.LibraryScreen
 import com.ezzy.quizzo.ui.screens.profile.ProfileScreen
 
-fun NavGraphBuilder.mainNavGraph(navController: NavController) {
+fun NavGraphBuilder.mainNavGraph(navController: NavController, isSystemInDarkTheme: Boolean) {
 
     val enterTransitionAnimation = slideInVertically(
         animationSpec = tween(700),
@@ -39,7 +39,7 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController) {
             },
             exitTransition = { exitTransitionAnimation }
         ) {
-            HomeScreen(navController = navController)
+            HomeScreen(navController = navController, isSystemInDarkTheme = isSystemInDarkTheme)
         }
 
         composable(route = Screen.Libary.route,

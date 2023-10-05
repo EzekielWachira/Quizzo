@@ -1,7 +1,6 @@
 package com.ezzy.quizzo.ui.screens.settings
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,8 +11,10 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -28,6 +29,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
+import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.NOTIFICATION_SETTINGS
 import com.ezzy.quizzo.ui.common.CommonAppBarWithTitle
 import com.ezzy.quizzo.ui.screens.home.components.TopCard
 import com.ezzy.quizzo.ui.screens.settings.components.SettingsItem
@@ -35,6 +37,7 @@ import com.ezzy.quizzo.ui.theme.Blue59
 import com.ezzy.quizzo.ui.theme.Coral70
 import com.ezzy.quizzo.ui.theme.DarkGrey11
 import com.ezzy.quizzo.ui.theme.DpDimensions
+import com.ezzy.quizzo.ui.theme.Grey46
 import com.ezzy.quizzo.ui.theme.Orange53
 import com.ezzy.quizzo.ui.theme.QuizzoTheme
 import com.ezzy.quizzo.ui.theme.RoyalBlue65
@@ -45,11 +48,12 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 fun SettingsScreen(navController: NavController) {
 
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
     val coroutineScope = rememberCoroutineScope()
-    val viewModel: SettingsViewModel = hiltViewModel()
-
-    val switchState by viewModel.switchState.collectAsStateWithLifecycle()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(
+        initialValue = false
+    )
+    val useDarkIcons = !isDarkModeEnabled
 
     SideEffect {
         systemUiController.setSystemBarsColor(
@@ -98,7 +102,10 @@ fun SettingsScreen(navController: NavController) {
                 title = stringResource(R.string.notifications),
                 icon = R.drawable.notification_filled,
                 iconTint = Coral70,
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                onClick = {
+                    navController.navigate(NOTIFICATION_SETTINGS)
+                }
             )
 
 
@@ -130,10 +137,18 @@ fun SettingsScreen(navController: NavController) {
                     isRightIconVisible = false
                 )
 
-                Switch(checked = switchState.isChecked, onCheckedChange = viewModel::onCheckChange)
+
+
+                Switch(
+                    checked = isDarkModeEnabled, onCheckedChange = settingsViewModel::setDarkModel,
+                    colors = SwitchDefaults.colors(
+                        uncheckedThumbColor = MaterialTheme.colorScheme.inverseSurface,
+//                    checkedThumbColor = MaterialTheme.colorScheme.onPrimary,
+                        checkedTrackColor = MaterialTheme.colorScheme.outline,
+                        checkedBorderColor = Grey46
+                    )
+                )
             }
-
-
 
             SettingsItem(
                 title = stringResource(R.string.help_center),

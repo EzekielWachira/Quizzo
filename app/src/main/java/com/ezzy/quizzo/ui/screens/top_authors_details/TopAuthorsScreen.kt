@@ -32,6 +32,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
@@ -42,6 +44,7 @@ import com.ezzy.quizzo.ui.screens.home.Author
 import com.ezzy.quizzo.ui.screens.home.authors2
 import com.ezzy.quizzo.ui.screens.home.collections
 import com.ezzy.quizzo.ui.screens.home.components.CollectionItem
+import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.screens.top_authors.components.AuthorItem
 import com.ezzy.quizzo.ui.screens.top_authors_details.components.TopAuthorStats
 import com.ezzy.quizzo.ui.screens.top_collection_details.components.AppBarWithSendAndMore
@@ -56,8 +59,9 @@ import com.google.gson.Gson
 fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
 
     val systemUiController = rememberSystemUiController()
-    val useDarkIcons = !isSystemInDarkTheme()
-    val coroutineScope = rememberCoroutineScope()
+    val settingsViewModel: SettingsViewModel = hiltViewModel()
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val useDarkIcons = !isDarkModeEnabled
     var author by rememberSaveable {
         mutableStateOf<Author?>(null)
     }
