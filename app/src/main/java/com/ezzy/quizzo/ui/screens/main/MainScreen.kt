@@ -17,6 +17,7 @@ import com.ezzy.quizzo.navigation.graphs.authMainNavGraph
 import com.ezzy.quizzo.navigation.graphs.discoverNavGraph
 import com.ezzy.quizzo.navigation.graphs.findFriendsNavGraph
 import com.ezzy.quizzo.navigation.graphs.mainNavGraph
+import com.ezzy.quizzo.navigation.graphs.settingsNavGraph
 import com.ezzy.quizzo.navigation.graphs.topAuthorNavGraph
 import com.ezzy.quizzo.navigation.graphs.topCollectionsNavGraph
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Main.MAIN
@@ -57,6 +58,7 @@ fun MainScreen() {
             discoverNavGraph(navController)
             findFriendsNavGraph(navController)
             authMainNavGraph(navController)
+            settingsNavGraph(navController)
 
         }
     }

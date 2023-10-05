@@ -63,7 +63,8 @@ fun SettingsScreen(navController: NavController) {
         topBar = {
             CommonAppBarWithTitle(
                 title = stringResource(R.string.settings),
-                backIcon = Icons.AutoMirrored.Outlined.ArrowBack
+                backIcon = Icons.AutoMirrored.Outlined.ArrowBack,
+                onBackClick = { navController.popBackStack() }
             )
         }
     ) { paddingValues ->

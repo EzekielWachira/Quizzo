@@ -16,6 +16,11 @@ object NavDestinations {
         const val DISCOVER = "discover"
     }
 
+    object Settings {
+        const val SETTINGS_MAIN = "settings_main"
+        const val SETTINGS = "settings"
+    }
+
     object Splash {
         const val SPLASH_MAIN = "splash_main"
         const val SPLASH = "splash"

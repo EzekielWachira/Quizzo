@@ -129,6 +129,86 @@ fun AuthorItem(
     }
 }
 
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun AuthorItem(
+    author: Author,
+    modifier: Modifier = Modifier,
+    onClick: (author: Author) -> Unit = {},
+    onEditClick: () -> Unit = {},
+) {
+
+    Surface(
+        modifier = modifier,
+        onClick = { onClick(author) },
+        shape = RoundedCornerShape(DpDimensions.Small),
+        color = MaterialTheme.colorScheme.background
+    ) {
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(all = DpDimensions.Small),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            Image(
+                painter = painterResource(id = author.avatar),
+                contentDescription = null,
+                modifier = Modifier.size(60.dp),
+                contentScale = ContentScale.Crop
+            )
+
+
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = DpDimensions.Small),
+                verticalArrangement = Arrangement.spacedBy(DpDimensions.Smallest)
+            ) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(DpDimensions.Small)
+                ) {
+                    Text(
+                        text = author.name,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.inversePrimary
+                    )
+
+                    if (author.isVerified) {
+                        Image(
+                            painter = painterResource(id = R.drawable.verified),
+                            contentDescription = "Verified icon",
+                            modifier = Modifier.size(DpDimensions.Dp20)
+                        )
+                    }
+                }
+
+                Text(
+                    text = author.username,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSecondary
+                )
+            }
+
+            Button(
+                onClick = {
+                    onEditClick()
+                }, modifier = Modifier.height(35.dp), colors = ButtonDefaults.buttonColors(
+                    containerColor = MaterialTheme.colorScheme.onPrimary
+                )
+            ) {
+                Text(
+                    text = stringResource(R.string.edit_profile),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = Color.White,
+                )
+            }
+        }
+    }
+}
+
 @Preview
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
