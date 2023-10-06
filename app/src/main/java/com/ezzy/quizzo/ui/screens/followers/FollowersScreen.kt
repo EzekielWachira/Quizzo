@@ -4,6 +4,7 @@ import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -62,14 +63,15 @@ fun FollowersScreen(navController: NavController, isSystemInDarkTheme: Boolean) 
         topBar = {
             AppBarWithSearch(
                 title = "Andrew Ainsley",
-                backIcon = Icons.AutoMirrored.Outlined.ArrowBack
+                backIcon = Icons.AutoMirrored.Outlined.ArrowBack,
+                onBackClick = { navController.popBackStack() }
             )
         }
     ) { paddingValues ->
 
         Column(
             modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(paddingValues)
                 .padding(horizontal = DpDimensions.Normal)
         ) {
@@ -88,14 +90,14 @@ fun FollowersScreen(navController: NavController, isSystemInDarkTheme: Boolean) 
             ) {
                 items(when (selectedTabIndex) {
                     0 -> authors2
-                    1 -> authors2.filter { author -> author.isFollowing }
+                    1 -> authors2.filter { author -> !author.isFollowing }
                     else -> emptyList()
                 }) { author ->
                     AuthorItem(author = author, modifier = Modifier.fillMaxWidth(),
                         onFollowClick = { context.showToast("Follow") },
                         onUnFollowClick = { context.showToast("Un Follow") },
                         onClick = { author ->
-                            navController.navigate("top_authors_details/${Gson().toJson(author)}")
+//                            navController.navigate("top_authors_details/${Gson().toJson(author)}")
                         }
                     )
                 }

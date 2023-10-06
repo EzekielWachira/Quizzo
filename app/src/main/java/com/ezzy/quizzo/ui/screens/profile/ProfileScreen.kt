@@ -1,7 +1,6 @@
 package com.ezzy.quizzo.ui.screens.profile
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -18,7 +17,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -33,7 +31,9 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
 import com.ezzy.quizzo.domain.model.quizzes
+import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.FOLLOWERS
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.SETTINGS_MAIN
+import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.STATS
 import com.ezzy.quizzo.ui.common.CustomPadding
 import com.ezzy.quizzo.ui.common.CustomTab
 import com.ezzy.quizzo.ui.common.HeaderWithSort
@@ -55,7 +55,9 @@ import com.google.accompanist.systemuicontroller.rememberSystemUiController
 fun ProfileScreen(navController: NavController) {
     val systemUiController = rememberSystemUiController()
     val settingsViewModel: SettingsViewModel = hiltViewModel()
-    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(
+        initialValue = false
+    )
     val useDarkIcons = !isDarkModeEnabled
 
     val tabTitles = listOf(
@@ -86,7 +88,7 @@ fun ProfileScreen(navController: NavController) {
                 icon3 = R.drawable.settings,
                 title = stringResource(id = R.string.profile),
                 onAction1Click = {},
-                onAction2Click = {},
+                onAction2Click = { navController.navigate(STATS) },
                 onAction3Click = { navController.navigate(SETTINGS_MAIN) }
             )
         }
@@ -105,7 +107,11 @@ fun ProfileScreen(navController: NavController) {
                 Spacer(modifier = Modifier.height(DpDimensions.Small))
                 AuthorItem(author = authors2[0], modifier = Modifier.fillMaxWidth(),
                     onEditClick = {})
-                TopAuthorStats(Modifier.fillMaxWidth())
+                TopAuthorStats(
+                    modifier = Modifier.fillMaxWidth(),
+                    onFollowersClick = { navController.navigate(FOLLOWERS) },
+                    onFollowingClick = { navController.navigate(FOLLOWERS) }
+                )
                 CustomTab(
                     selectedIndex = selectedTabIndex,
                     modifier = Modifier.fillMaxWidth(),

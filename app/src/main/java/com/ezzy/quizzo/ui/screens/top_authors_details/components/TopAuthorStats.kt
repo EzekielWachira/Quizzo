@@ -1,7 +1,6 @@
 package com.ezzy.quizzo.ui.screens.top_authors_details.components
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -31,7 +30,13 @@ class TopAuthorStats {
 
 @Composable
 fun TopAuthorStats(
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onQuizzoClick: () -> Unit = {},
+    onPlaysClick: () -> Unit = {},
+    onPlayersClick: () -> Unit = {},
+    onCollectionsClick: () -> Unit = {},
+    onFollowersClick: () -> Unit = {},
+    onFollowingClick: () -> Unit = {},
 ) {
 
     Surface(
@@ -53,22 +58,31 @@ fun TopAuthorStats(
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.weight(1f)
+                Surface(
+                    shape = RoundedCornerShape(DpDimensions.Small),
+                    color = MaterialTheme.colorScheme.background,
+                    modifier = Modifier.weight(1f),
+                    onClick = onQuizzoClick
                 ) {
-                    Text(
-                        text = "265",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = DpDimensions.Small)
+                    ) {
+                        Text(
+                            text = "265",
+                            style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
 
-                    Text(
-                        text = stringResource(R.string.app_name),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                        Text(
+                            text = stringResource(R.string.app_name),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
+                    }
                 }
 
                 Divider(
@@ -78,22 +92,31 @@ fun TopAuthorStats(
                         .width(1.dp)
                 )
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.weight(1f)
+                Surface(
+                    shape = RoundedCornerShape(DpDimensions.Small),
+                    color = MaterialTheme.colorScheme.background,
+                    modifier = Modifier.weight(1f),
+                    onClick = onPlaysClick
                 ) {
-                    Text(
-                        text = "34M",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = DpDimensions.Small)
+                    ) {
+                        Text(
+                            text = "34M",
+                            style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
 
-                    Text(
-                        text = stringResource(R.string.plays),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                        Text(
+                            text = stringResource(R.string.plays),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
+                    }
                 }
 
                 Divider(
@@ -102,22 +125,31 @@ fun TopAuthorStats(
                         .height(80.dp)
                         .width(1.dp)
                 )
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.weight(1f)
+                Surface(
+                    shape = RoundedCornerShape(DpDimensions.Small),
+                    color = MaterialTheme.colorScheme.background,
+                    modifier = Modifier.weight(1f),
+                    onClick = onPlayersClick
                 ) {
-                    Text(
-                        text = "233M",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = DpDimensions.Small)
+                    ) {
+                        Text(
+                            text = "233M",
+                            style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
 
-                    Text(
-                        text = stringResource(R.string.players),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                        Text(
+                            text = stringResource(R.string.players),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
+                    }
                 }
 
 
@@ -133,22 +165,31 @@ fun TopAuthorStats(
                 verticalAlignment = Alignment.CenterVertically
             ) {
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.weight(1f)
+                Surface(
+                    shape = RoundedCornerShape(DpDimensions.Small),
+                    color = MaterialTheme.colorScheme.background,
+                    modifier = Modifier.weight(1f),
+                    onClick = onCollectionsClick
                 ) {
-                    Text(
-                        text = "434",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = DpDimensions.Small)
+                    ) {
+                        Text(
+                            text = "434",
+                            style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
 
-                    Text(
-                        text = stringResource(R.string.collections),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                        Text(
+                            text = stringResource(R.string.collections),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
+                    }
                 }
 
                 Divider(
@@ -158,22 +199,31 @@ fun TopAuthorStats(
                         .width(1.dp)
                 )
 
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.weight(1f)
+                Surface(
+                    shape = RoundedCornerShape(DpDimensions.Small),
+                    color = MaterialTheme.colorScheme.background,
+                    modifier = Modifier.weight(1f),
+                    onClick = onFollowersClick
                 ) {
-                    Text(
-                        text = "498.3K",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = DpDimensions.Small)
+                    ) {
+                        Text(
+                            text = "498.3K",
+                            style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
 
-                    Text(
-                        text = stringResource(R.string.followers),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                        Text(
+                            text = stringResource(R.string.followers),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
+                    }
                 }
 
                 Divider(
@@ -182,24 +232,32 @@ fun TopAuthorStats(
                         .height(80.dp)
                         .width(1.dp)
                 )
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    verticalArrangement = Arrangement.Center,
-                    modifier = Modifier.weight(1f)
+                Surface(
+                    shape = RoundedCornerShape(DpDimensions.Small),
+                    color = MaterialTheme.colorScheme.background,
+                    modifier = Modifier.weight(1f),
+                    onClick = onFollowersClick
                 ) {
-                    Text(
-                        text = "345",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = DpDimensions.Small)
+                    ) {
+                        Text(
+                            text = "345",
+                            style = MaterialTheme.typography.headlineMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
 
-                    Text(
-                        text = stringResource(R.string.following),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.inversePrimary
-                    )
+                        Text(
+                            text = stringResource(R.string.following),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.inversePrimary
+                        )
+                    }
                 }
-
 
             }
 

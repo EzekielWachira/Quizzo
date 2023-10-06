@@ -8,12 +8,17 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.ezzy.quizzo.navigation.Screen
+import com.ezzy.quizzo.navigation.utils.NavDestinations
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Main.MAIN
 import com.ezzy.quizzo.ui.screens.create.CreateScreen
+import com.ezzy.quizzo.ui.screens.followers.FollowersScreen
 import com.ezzy.quizzo.ui.screens.home.HomeScreen
 import com.ezzy.quizzo.ui.screens.join.JoinScreen
 import com.ezzy.quizzo.ui.screens.library.LibraryScreen
 import com.ezzy.quizzo.ui.screens.profile.ProfileScreen
+import com.ezzy.quizzo.ui.screens.stats.StatsScreen
+import com.ezzy.quizzo.utils.slideInVerticallyEnterAnimation
+import com.ezzy.quizzo.utils.slideOutVerticallyEnterAnimation
 
 fun NavGraphBuilder.mainNavGraph(navController: NavController, isSystemInDarkTheme: Boolean) {
 
@@ -68,6 +73,28 @@ fun NavGraphBuilder.mainNavGraph(navController: NavController, isSystemInDarkThe
             exitTransition = { exitTransitionAnimation }
         ) {
             ProfileScreen(navController = navController)
+        }
+
+        composable(
+            route = NavDestinations.Settings.STATS,
+            enterTransition = { slideInVerticallyEnterAnimation() },
+            exitTransition = { slideOutVerticallyEnterAnimation() }
+        ) {
+            StatsScreen(
+                navController = navController,
+                isSystemInDarkTheme = isSystemInDarkTheme
+            )
+        }
+
+        composable(
+            route = NavDestinations.Settings.FOLLOWERS,
+            enterTransition = { slideInVerticallyEnterAnimation() },
+            exitTransition = { slideOutVerticallyEnterAnimation() }
+        ) {
+            FollowersScreen(
+                navController = navController,
+                isSystemInDarkTheme = isSystemInDarkTheme
+            )
         }
     }
 }
