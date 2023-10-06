@@ -4,12 +4,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.navigation.graphs.appMainNavGraph
 import com.ezzy.quizzo.navigation.graphs.authNavGraph
 import com.ezzy.quizzo.navigation.graphs.registrationNavGraph
 import com.ezzy.quizzo.navigation.utils.NavDestinations
+import com.ezzy.quizzo.ui.theme.QuizzoTheme
 
 
 @Composable
@@ -25,5 +27,13 @@ fun AuthMainScreen() {
 //            registrationNavGraph(navController)
             appMainNavGraph(navController)
         }
+    }
+}
+
+@Preview
+@Composable
+fun AuthMainScreenPreview() {
+    QuizzoTheme {
+        AuthMainScreen()
     }
 }
