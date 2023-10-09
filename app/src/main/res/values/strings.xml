@@ -90,4 +90,10 @@
     <string name="news_and_promotion"><![CDATA[News & Promotion]]></string>
     <string name="new_tips_available">New Tips Available</string>
     <string name="survey_invitation">Survey Invitation</string>
+    <string name="premium_benefits">Premium Benefits</string>
+    <string name="enter_coupon_code">Enter Coupon Code</string>
+    <string name="congrats">Congrats!</string>
+    <string name="welcome_to_premium">Welcome to Premium, enjoy benefits</string>
+    <string name="scan_icon">Scan icon</string>
+    <string name="add_icon">Add icon</string>
 </resources>

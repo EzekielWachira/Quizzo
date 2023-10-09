@@ -75,7 +75,7 @@ fun NotificationSettingsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .padding(horizontal = DpDimensions.Normal)
+                .padding(horizontal = DpDimensions.Small)
                 .scrollable(rememberScrollState(), Orientation.Vertical),
             verticalArrangement = Arrangement.spacedBy(DpDimensions.Small)
         ) {

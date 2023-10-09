@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.toggleable
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
@@ -24,29 +26,39 @@ fun SwitchWithLeadingLabel(
     onValueChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Row(
-        modifier = modifier
-            .toggleable(
-                value = isChecked,
-                role = Role.Switch,
-                onValueChange = onValueChange
-            )
-            .padding(vertical = DpDimensions.Smallest),
-        verticalAlignment = Alignment.CenterVertically
+    Surface(
+        modifier = modifier,
+        shape = RoundedCornerShape(DpDimensions.Small),
+        color = MaterialTheme.colorScheme.background
     ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyMedium,
+        Row(
             modifier = Modifier
-                .weight(1f)
-        )
-        Switch(
-            checked = isChecked,
-            onCheckedChange = null,
-            colors = SwitchDefaults.colors(
-                checkedThumbColor = Color.White
+                .toggleable(
+                    value = isChecked,
+                    role = Role.Switch,
+                    onValueChange = onValueChange
+                )
+                .padding(
+                    vertical = DpDimensions.Small,
+                    horizontal = DpDimensions.Normal
+                ),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier
+                    .weight(1f),
+                color = MaterialTheme.colorScheme.inversePrimary
             )
-        )
+            Switch(
+                checked = isChecked,
+                onCheckedChange = null,
+                colors = SwitchDefaults.colors(
+                    checkedThumbColor = Color.White
+                )
+            )
+        }
     }
 }
 

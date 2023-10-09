@@ -29,7 +29,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
+import com.ezzy.quizzo.navigation.utils.NavDestinations
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.NOTIFICATION_SETTINGS
+import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.PREMIUM
 import com.ezzy.quizzo.ui.common.CommonAppBarWithTitle
 import com.ezzy.quizzo.ui.screens.home.components.TopCard
 import com.ezzy.quizzo.ui.screens.settings.components.SettingsItem
@@ -84,7 +86,10 @@ fun SettingsScreen(navController: NavController) {
             TopCard(
                 title = stringResource(R.string.play_quizzes_without_ads),
                 buttonText = "GO PREMIUM",
-                image = R.drawable.sky
+                image = R.drawable.sky,
+                onButtonClick = {
+                    navController.navigate(PREMIUM)
+                }
             )
             Spacer(modifier = Modifier.height(DpDimensions.Dp20))
 
@@ -142,10 +147,7 @@ fun SettingsScreen(navController: NavController) {
                 Switch(
                     checked = isDarkModeEnabled, onCheckedChange = settingsViewModel::setDarkModel,
                     colors = SwitchDefaults.colors(
-                        uncheckedThumbColor = MaterialTheme.colorScheme.inverseSurface,
-//                    checkedThumbColor = MaterialTheme.colorScheme.onPrimary,
-                        checkedTrackColor = MaterialTheme.colorScheme.outline,
-                        checkedBorderColor = Grey46
+                        checkedThumbColor = Color.White
                     )
                 )
             }

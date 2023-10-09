@@ -22,6 +22,7 @@ object NavDestinations {
         const val NOTIFICATION_SETTINGS = "notification_settings"
         const val STATS = "stats"
         const val FOLLOWERS = "followers"
+        const val PREMIUM = "premium"
     }
 
     object CollectionDetails {
