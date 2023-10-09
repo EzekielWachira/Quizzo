@@ -7,10 +7,8 @@ import androidx.navigation.navigation
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.NOTIFICATION_SETTINGS
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.SETTINGS
 import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.SETTINGS_MAIN
-import com.ezzy.quizzo.navigation.utils.NavDestinations.Settings.STATS
-import com.ezzy.quizzo.ui.screens.notification_settings.NotificationSettingsScreen
+import com.ezzy.quizzo.ui.screens.notification_settings.NotificationSettingsScreenRoute
 import com.ezzy.quizzo.ui.screens.settings.SettingsScreen
-import com.ezzy.quizzo.ui.screens.stats.StatsScreen
 import com.ezzy.quizzo.utils.slideInVerticallyEnterAnimation
 import com.ezzy.quizzo.utils.slideOutVerticallyEnterAnimation
 
@@ -33,9 +31,11 @@ fun NavGraphBuilder.settingsNavGraph(navController: NavController, isSystemInDar
             enterTransition = { slideInVerticallyEnterAnimation() },
             exitTransition = { slideOutVerticallyEnterAnimation() }
         ) {
-            NotificationSettingsScreen(
-                navController = navController,
-                isSystemInDarkTheme = isSystemInDarkTheme
+            NotificationSettingsScreenRoute(
+                isSystemInDarkTheme = isSystemInDarkTheme,
+                onNavigateBack = {
+                    navController.popBackStack()
+                }
             )
         }
 
