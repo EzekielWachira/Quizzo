@@ -31,6 +31,7 @@ import com.ezzy.quizzo.R
 import com.ezzy.quizzo.domain.model.quizzes
 import com.ezzy.quizzo.ui.common.CategoryHeader
 import com.ezzy.quizzo.ui.common.QuizItem
+import com.ezzy.quizzo.ui.common.TwoButtons
 import com.ezzy.quizzo.ui.screens.collection_details.components.AccountComponent
 import com.ezzy.quizzo.ui.screens.collection_details.components.CollectionDetailsTopBar
 import com.ezzy.quizzo.ui.screens.collection_details.components.menuItems
@@ -120,6 +121,15 @@ fun CollectionDetailsScreen(navController: NavController, isSystemInDarkTheme: B
             items(quizzes.takeLast(3)) { quiz ->
                 QuizItem(quiz = quiz, modifier = Modifier.fillMaxWidth(),
                     onClick = {})
+            }
+
+            item {
+                Spacer(modifier = Modifier.height(DpDimensions.Dp30))
+                TwoButtons(
+                    button1Text = "Play Solo",
+                    button2Text = "Play with Friends",
+                    modifier = Modifier.fillMaxWidth()
+                )
             }
 
         }
