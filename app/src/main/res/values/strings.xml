@@ -80,4 +80,14 @@
     <string name="shared">Shared</string>
     <string name="you">You</string>
     <string name="description">Description</string>
+    <string name="enable_push_notifications">Enable Push Notification</string>
+    <string name="new_followers">New Followers</string>
+    <string name="new_likes">New Likes</string>
+    <string name="payment_and_subscriptions"><![CDATA[Payment & Subscriptions]]></string>
+    <string name="friend_activity">Friend Activity</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="app_updates">App Updates</string>
+    <string name="news_and_promotion"><![CDATA[News & Promotion]]></string>
+    <string name="new_tips_available">New Tips Available</string>
+    <string name="survey_invitation">Survey Invitation</string>
 </resources>
