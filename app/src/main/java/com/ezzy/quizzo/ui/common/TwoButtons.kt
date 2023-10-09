@@ -51,7 +51,7 @@ fun TwoButtons(
 
                 Text(
                     text = button1Text,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.tertiary
                 )
 
@@ -68,7 +68,7 @@ fun TwoButtons(
             ) {
                 Text(
                     text = button2Text,
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.titleSmall,
                     color = Color.White
                 )
             }

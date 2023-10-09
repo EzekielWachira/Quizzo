@@ -165,22 +165,13 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
                 }
 
                 1 -> {
-                    item {
-                        LazyVerticalGrid(
-                            columns = GridCells.Fixed(2),
-                            horizontalArrangement = Arrangement.spacedBy(DpDimensions.Small),
-                            verticalArrangement = Arrangement.spacedBy(DpDimensions.Small)
-                        ) {
-                            this.items(collections) { collection ->
-                                CollectionItem(collection = collection,
-                                    modifier = Modifier.fillMaxWidth(),
-                                    height = 150.dp,
-                                    onClick = { }
-                                )
-                            }
-                        }
+                    items(collections) { collection ->
+                        CollectionItem(collection = collection,
+                            modifier = Modifier.fillMaxWidth(),
+                            height = 150.dp,
+                            onClick = { }
+                        )
                     }
-
                 }
             }
 
