@@ -1,7 +1,6 @@
 package com.ezzy.quizzo.ui.screens.top_authors_details
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -11,6 +10,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
@@ -22,7 +24,6 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -60,7 +61,9 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
 
     val systemUiController = rememberSystemUiController()
     val settingsViewModel: SettingsViewModel = hiltViewModel()
-    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(initialValue = false)
+    val isDarkModeEnabled by settingsViewModel.isDarkModeEnabled.collectAsStateWithLifecycle(
+        initialValue = false
+    )
     val useDarkIcons = !isDarkModeEnabled
     var author by rememberSaveable {
         mutableStateOf<Author?>(null)
@@ -162,13 +165,22 @@ fun TopAuthorsDetailsScreen(navController: NavController, authorStr: String?) {
                 }
 
                 1 -> {
-                    items(collections) { collection ->
-                        CollectionItem(collection = collection,
-                            modifier = Modifier.fillMaxWidth(),
-                            height = 150.dp,
-                            onClick = { }
-                        )
+                    item {
+                        LazyVerticalGrid(
+                            columns = GridCells.Fixed(2),
+                            horizontalArrangement = Arrangement.spacedBy(DpDimensions.Small),
+                            verticalArrangement = Arrangement.spacedBy(DpDimensions.Small)
+                        ) {
+                            this.items(collections) { collection ->
+                                CollectionItem(collection = collection,
+                                    modifier = Modifier.fillMaxWidth(),
+                                    height = 150.dp,
+                                    onClick = { }
+                                )
+                            }
+                        }
                     }
+
                 }
             }
 

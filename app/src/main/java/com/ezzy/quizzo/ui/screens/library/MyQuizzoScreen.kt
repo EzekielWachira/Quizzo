@@ -15,8 +15,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.outlined.AddToHomeScreen
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -46,6 +44,7 @@ import com.ezzy.quizzo.ui.theme.QuizzoTheme
 @Composable
 fun MyQuizzoScreen(
     modifier: Modifier = Modifier,
+    onItemClick: () -> Unit = {}
 ) {
 
     val tabTitles = listOf(
@@ -61,8 +60,10 @@ fun MyQuizzoScreen(
         floatingActionButton = {
             if (selectedTabIndex == 1) {
 
-                FloatingActionButton(onClick = { },
-                    containerColor = MaterialTheme.colorScheme.onPrimary) {
+                FloatingActionButton(
+                    onClick = { },
+                    containerColor = MaterialTheme.colorScheme.onPrimary
+                ) {
                     Icon(
                         painter = painterResource(id = R.drawable.add_btn),
                         contentDescription = null,
@@ -78,8 +79,11 @@ fun MyQuizzoScreen(
             modifier = modifier,
         ) {
 
-            Column(modifier = Modifier.fillMaxSize()
-                   .padding(horizontal = DpDimensions.Normal)) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = DpDimensions.Normal)
+            ) {
                 Spacer(modifier = Modifier.height(DpDimensions.Dp20))
 
                 CustomTab(
@@ -109,7 +113,9 @@ fun MyQuizzoScreen(
                         ) {
                             items(quizzes.take(10)) { quiz ->
                                 QuizItem(quiz = quiz, modifier = Modifier.fillMaxWidth(),
-                                    onClick = {})
+                                    onClick = {
+                                        onItemClick()
+                                    })
                             }
 
                             item {
@@ -125,12 +131,12 @@ fun MyQuizzoScreen(
                             modifier = Modifier.fillMaxSize(),
                             horizontalArrangement = Arrangement.spacedBy(DpDimensions.Small),
                             verticalArrangement = Arrangement.spacedBy(DpDimensions.Small)
-                        )  {
-                            items (collections) { collection ->
+                        ) {
+                            items(collections) { collection ->
                                 CollectionItem(
                                     collection = collection,
                                     onClick = {
-
+                                        onItemClick()
                                     }, modifier = Modifier.fillMaxWidth(),
                                     height = 150.dp
                                 )
@@ -142,12 +148,10 @@ fun MyQuizzoScreen(
                 }
 
 
-
             }
 
         }
     }
-
 
 
 }

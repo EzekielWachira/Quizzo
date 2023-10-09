@@ -16,6 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.navigation.BottomNavBar
 import com.ezzy.quizzo.navigation.Screen
 import com.ezzy.quizzo.navigation.graphs.authMainNavGraph
+import com.ezzy.quizzo.navigation.graphs.collectionDetailsNavGraph
 import com.ezzy.quizzo.navigation.graphs.discoverNavGraph
 import com.ezzy.quizzo.navigation.graphs.findFriendsNavGraph
 import com.ezzy.quizzo.navigation.graphs.mainNavGraph
@@ -74,6 +75,7 @@ fun MainScreen() {
             findFriendsNavGraph(navController)
             authMainNavGraph(navController)
             settingsNavGraph(navController, isSystemInDarkTheme)
+            collectionDetailsNavGraph(navController, isSystemInDarkTheme)
 
         }
     }

@@ -24,6 +24,11 @@ object NavDestinations {
         const val FOLLOWERS = "followers"
     }
 
+    object CollectionDetails {
+        const val COLLECTION_DETAILS_MAIN = "collection_details_main"
+        const val COLLECTION_DETAILS = "collection_details"
+    }
+
     object Splash {
         const val SPLASH_MAIN = "splash_main"
         const val SPLASH = "splash"

@@ -19,7 +19,8 @@ import com.ezzy.quizzo.ui.theme.DpDimensions
 @Composable
 fun FavoritesScreen(
     navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onItemClick: () -> Unit = {}
 ) {
     
     Column(
@@ -37,7 +38,7 @@ fun FavoritesScreen(
         ) {
             items(quizzes.take(10)) { quiz ->
                 QuizItem(quiz = quiz, modifier = Modifier.fillMaxWidth(),
-                    onClick = {})
+                    onClick = {onItemClick()})
             }
 
             item {

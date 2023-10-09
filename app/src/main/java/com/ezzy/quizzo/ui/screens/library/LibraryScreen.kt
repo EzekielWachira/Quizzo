@@ -35,6 +35,8 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.ezzy.quizzo.R
+import com.ezzy.quizzo.navigation.utils.NavDestinations
+import com.ezzy.quizzo.navigation.utils.NavDestinations.CollectionDetails.COLLECTION_DETAILS_MAIN
 import com.ezzy.quizzo.ui.common.LogoAppBarWithTwoActions
 import com.ezzy.quizzo.ui.screens.settings.SettingsViewModel
 import com.ezzy.quizzo.ui.theme.DarkGrey11
@@ -128,17 +130,24 @@ fun LibraryScreen(navController: NavController) {
             }
 
             when (tabIndex) {
-                0 -> MyQuizzoScreen(modifier = Modifier.fillMaxSize())
+                0 -> MyQuizzoScreen(modifier = Modifier.fillMaxSize(),
+                    onItemClick = {
+                        navController.navigate(COLLECTION_DETAILS_MAIN)
+                    })
                 1 -> FavoritesScreen(
                     navController = navController,
-                    modifier = Modifier.fillMaxSize()
-                        .padding(horizontal = DpDimensions.Normal)
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = DpDimensions.Normal),
+                    onItemClick = {   navController.navigate(COLLECTION_DETAILS_MAIN) }
                 )
 
                 2 -> CollaborationScreen(
                     navController = navController,
-                    modifier = Modifier.fillMaxSize()
-                        .padding(horizontal = DpDimensions.Normal)
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = DpDimensions.Normal),
+                    onItemClick = {  navController.navigate(COLLECTION_DETAILS_MAIN)}
                 )
             }
 

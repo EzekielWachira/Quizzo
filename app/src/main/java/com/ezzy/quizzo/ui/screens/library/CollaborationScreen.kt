@@ -20,7 +20,8 @@ import com.ezzy.quizzo.ui.theme.DpDimensions
 @Composable
 fun CollaborationScreen(
     navController: NavController,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onItemClick: () -> Unit = {}
 ) {
     
     Column(
@@ -39,7 +40,7 @@ fun CollaborationScreen(
         ) {
             items(quizzes.take(10)) { quiz ->
                 CollaboratorItem(quiz = quiz, modifier = Modifier.fillMaxWidth(),
-                    onClick = {})
+                    onClick = {onItemClick()})
             }
 
             item {
