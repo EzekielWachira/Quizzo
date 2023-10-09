@@ -2,6 +2,8 @@ package com.ezzy.quizzo.ui.screens.premium.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
@@ -22,7 +24,7 @@ fun FreeVsPremiumItem(
     Row(
         modifier = modifier,
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(DpDimensions.Small)
+        horizontalArrangement = Arrangement.spacedBy(DpDimensions.Normal)
     ) {
         Text(
             text = freeVsPremium.title,
@@ -31,15 +33,18 @@ fun FreeVsPremiumItem(
             modifier = Modifier.weight(1f)
         )
 
-        Checkbox(
-            checked = freeVsPremium.freeEligible,
-            onCheckedChange = {},
-            colors = CheckboxDefaults.colors(
-                checkmarkColor = Color.White,
-                checkedColor = MaterialTheme.colorScheme.onPrimary,
-            ),
-//            enabled = false
-        )
+        if (freeVsPremium.freeEligible) {
+            Checkbox(
+                checked = freeVsPremium.freeEligible,
+                onCheckedChange = {},
+                colors = CheckboxDefaults.colors(
+                    checkmarkColor = Color.White,
+                    checkedColor = MaterialTheme.colorScheme.onPrimary,
+                    disabledCheckedColor = MaterialTheme.colorScheme.onPrimary,
+                ),
+                enabled = false
+            )
+        }
 
         Checkbox(
             checked = freeVsPremium.premiumEligible,
@@ -47,9 +52,12 @@ fun FreeVsPremiumItem(
             colors = CheckboxDefaults.colors(
                 checkmarkColor = Color.White,
                 checkedColor = MaterialTheme.colorScheme.onPrimary,
+                disabledCheckedColor = MaterialTheme.colorScheme.onPrimary,
             ),
-//            enabled = false
+            enabled = false
         )
+        
+        Spacer(modifier = Modifier.width(DpDimensions.Smallest))
     }
 
 }
