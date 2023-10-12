@@ -69,10 +69,8 @@ UI inspiration by <a href="https://www.figma.com/community/file/1218459870970248
 <img src="/screenshots/27.jpg" width="250"/>
 <img src="/screenshots/28.jpg" width="250"/>
 <img src="/screenshots/29.jpg" width="250"/>
-<img src="/screenshots/30.jpg" width="250"/>
 <img src="/screenshots/31.jpg" width="250"/>
 <img src="/screenshots/32.jpg" width="250"/>
-<img src="/screenshots/33.jpg" width="250"/>
 <img src="/screenshots/34.jpg" width="250"/>
 <img src="/screenshots/35.jpg" width="250"/>
 <img src="/screenshots/36.jpg" width="250"/>
