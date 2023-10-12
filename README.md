@@ -1,6 +1,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-A Money Transfer UI designed fully with Jetpack Compose.
+A Quiz Game UI designed fully with Jetpack Compose.
 
 UI inspiration by <a href="https://www.figma.com/community/file/1218459870970248677">Sobakhul Munir Siroj</a>
 
