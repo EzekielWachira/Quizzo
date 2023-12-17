@@ -16,7 +16,7 @@ dependencyResolutionManagement {
 
             credentials {
                 username = "EzekielWachira"
-                password = "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"
+                password = "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"
             }
         }
     }
